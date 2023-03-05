@@ -1,0 +1,23 @@
+{
+  "name": "BottomSheet",
+  "version": "1.0.6",
+  "summary": "⬆️ A SwiftUI view component sliding in from bottom",
+  "homepage": "http://www.github.com/weitieda/bottom-sheet",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "Tieda Wei": "hi@tiedawei.com"
+  },
+  "platforms": {
+    "ios": "13.0"
+  },
+  "source": {
+    "git": "https://github.com/weitieda/bottom-sheet.git",
+    "tag": "1.0.6"
+  },
+  "source_files": "Sources/BottomSheet/*.{swift}",
+  "swift_versions": "5.0",
+  "swift_version": "5.0"
+}
