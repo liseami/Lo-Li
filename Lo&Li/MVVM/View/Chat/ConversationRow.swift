@@ -8,11 +8,12 @@
 import SwiftUI
 
 struct ConversationRow: View {
-    var selected : Bool = false
+    let chatConversation: ChatConversation
+    var selected: Bool = false
     var body: some View {
         HStack {
-            Text("会话")
-                .ndFont(.body1,color: .f1)
+            Text(chatConversation.title)
+                .ndFont(.body1, color: .f1)
             Spacer()
         }
         .padding(.all, 12)
@@ -23,7 +24,7 @@ struct ConversationRow: View {
         .overlay(alignment: .center) {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .stroke(lineWidth: selected ? 3 : 1.5)
-                .fill( selected ? Color.teal.opacity(0.3).gradient : Color.f2.opacity(0.3).gradient)
+                .fill(selected ? Color.teal.opacity(0.3).gradient : Color.f2.opacity(0.3).gradient)
         }
         .padding(.all, 3)
         .overlay(alignment: .center) {
@@ -36,10 +37,11 @@ struct ConversationRow: View {
 
 struct ConversationRow_Previews: PreviewProvider {
     static var previews: some View {
-        VStack{
-            ConversationRow()
-            ConversationRow(selected: true)
+        let chatConversation = ChatConversation(context: PersistenceController.shared.container.viewContext)
+        return VStack {
+            ConversationRow(chatConversation: chatConversation)
+            ConversationRow(chatConversation: chatConversation, selected: true)
         }
-        .padding(.horizontal,100)
+        .padding(.horizontal, 100)
     }
 }

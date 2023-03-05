@@ -10,7 +10,7 @@ import Foundation
 class ChatViewModel: ObservableObject {
     @Published var currentModel: String = "gpt-3.5-turbo"
     @Published var userInput: String = ""
-
+    @Published var currentConversation : ChatConversation?
     @Published var isLoading: Bool = false
 
     func sendMessage() {

@@ -13,23 +13,8 @@ struct MainView: View {
     var body: some View {
         ZStack {
             NavigationSplitView(columnVisibility: $uistate.columnVisibility) {
-                VStack {
-                    ScrollView(.vertical, showsIndicators: false) {
-                        LazyVStack(alignment: .leading, spacing: 12) {
-                            ForEach(0 ..< 5) { _ in
-                                ConversationRow(selected: Bool.random())
-                            }
-                        }
-                        .padding(.horizontal, 12)
-                    }
-                    HStack {
-                        ICON(name: "settinggear") {
-                            Present(SettingView(), style: .pageSheet)
-                        }
-                        Spacer()
-                    }
-                    .padding(.all)
-                }
+                ConversationList()
+                    .environmentObject(chatViewModel)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
                         ICON(name: "plus")
