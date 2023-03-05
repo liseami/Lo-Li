@@ -6,41 +6,53 @@
 //
 //
 
-import Foundation
 import CoreData
+import Foundation
 
-
-extension ChatConversation {
-
-    @nonobjc public class func fetchRequest() -> NSFetchRequest<ChatConversation> {
+public extension ChatConversation {
+    @nonobjc class func fetchRequest() -> NSFetchRequest<ChatConversation> {
         return NSFetchRequest<ChatConversation>(entityName: "ChatConversation")
     }
 
-    @NSManaged public var id: String
-    @NSManaged public var title: String
-    @NSManaged public var createat: Date
-    @NSManaged public var lasttimetouse: Date
-    @NSManaged public var messages: NSSet?
-
+    @NSManaged var id: String
+    @NSManaged var title: String
+    @NSManaged var createat: Date
+    @NSManaged var lasttimetouse: Date
+    @NSManaged var messages: Set<ChatMessage>?
 }
 
 // MARK: Generated accessors for messages
-extension ChatConversation {
 
+public extension ChatConversation {
     @objc(addMessagesObject:)
-    @NSManaged public func addToMessages(_ value: ChatMessage)
+    @NSManaged func addToMessages(_ value: ChatMessage)
 
     @objc(removeMessagesObject:)
-    @NSManaged public func removeFromMessages(_ value: ChatMessage)
+    @NSManaged func removeFromMessages(_ value: ChatMessage)
 
     @objc(addMessages:)
-    @NSManaged public func addToMessages(_ values: NSSet)
+    @NSManaged func addToMessages(_ values: NSSet)
 
     @objc(removeMessages:)
-    @NSManaged public func removeFromMessages(_ values: NSSet)
-
+    @NSManaged func removeFromMessages(_ values: NSSet)
 }
 
-extension ChatConversation : Identifiable {
+extension ChatConversation: Identifiable {
+    //     AddNew
+    func addNew() {
+        id = UUID().uuidString
+        title = "新的对话"
+        createat = Date.now
+        lasttimetouse = Date.now
+        coreDataSave {} onError: {}
+    }
 
+    // CreatNew
+    func creatNew() -> ChatConversation {
+        id = UUID().uuidString
+        title = "新的对话"
+        createat = Date.now
+        lasttimetouse = Date.now
+        return self
+    }
 }

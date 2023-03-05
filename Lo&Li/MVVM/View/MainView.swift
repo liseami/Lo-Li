@@ -17,7 +17,10 @@ struct MainView: View {
                     .environmentObject(chatViewModel)
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        ICON(name: "plus")
+                        ICON(name: "plus"){
+                            ChatConversation(context: PersistenceController.shared.container.viewContext)
+                                .addNew()
+                        }
                     }
                 }
 

@@ -6,18 +6,23 @@
 //
 //
 
-import CoreData
 import Foundation
+import CoreData
 
-public extension ChatMessage {
-    @nonobjc class func fetchRequest() -> NSFetchRequest<ChatMessage> {
+
+extension ChatMessage {
+
+    @nonobjc public class func fetchRequest() -> NSFetchRequest<ChatMessage> {
         return NSFetchRequest<ChatMessage>(entityName: "ChatMessage")
     }
 
-    @NSManaged var createat: String
-    @NSManaged var data: Data
-    @NSManaged var id: String
+    @NSManaged public var createat: Date
+    @NSManaged public var data: Data
+    @NSManaged public var id: String
+    @NSManaged public var conversation: ChatConversation
+
 }
+
 
 extension ChatMessage: Identifiable {
     var wrapvalue: MessageToShow {
@@ -32,7 +37,7 @@ extension ChatMessage: Identifiable {
     func addNew(mod: MessageToShow) {
         data = mod.stringData
         id = mod.id
-        createat = mod.createat
+        createat = Date(timeIntervalSince1970: TimeInterval(mod.createat.int ?? 0))
         coreDataSave {} onError: {}
     }
 
@@ -40,13 +45,7 @@ extension ChatMessage: Identifiable {
     func creatNew(mod: MessageToShow) -> ChatMessage {
         data = mod.stringData
         id = mod.id
-        createat = mod.createat
+        createat = Date(timeIntervalSince1970: TimeInterval(mod.createat.int ?? 0))
         return self
-    }
-}
-
-extension Convertible {
-    var stringData: Data {
-        kj.JSONString().data(using: .utf8)!
     }
 }

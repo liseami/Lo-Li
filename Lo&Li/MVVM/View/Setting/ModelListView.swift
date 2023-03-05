@@ -22,14 +22,14 @@ class ModelListViewModel: FantasyListDataRequestProtocol {
         OpenAPI.models
     }
 
-    var listDataReqStatus: ListDataRequestStatus = .isLoading
+    @Published var listDataReqStatus: ListDataRequestStatus = .isLoading
 }
 
 struct ModelListView: View {
     @StateObject var vm: ModelListViewModel = .init()
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            if vm.listDataReqStatus != .isLoading {
+            if vm.listDataReqStatus == .isLoading {
                 ProgressView()
             } else {
                 LazyVStack {
@@ -49,8 +49,7 @@ struct ModelListView: View {
         .navigationTitle("模型选择")
         .padding(.all)
         .task {
-            vm.datalist = MockTool.readArray(OpenApiModel.self, fileName: "citys", atKeyPath: "data") ?? [.init(id: "123", object: "djafjsdf", owned_by: "djafjf")]
-//          await  vm.getListData()
+            await vm.getListData()
         }
     }
 }

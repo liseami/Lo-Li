@@ -110,13 +110,14 @@
 		A2A3C00329B45F670075A77B /* citys.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A3C00229B45F670075A77B /* citys.json */; };
 		A2A3C00529B461130075A77B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C00429B461130075A77B /* ChatViewModel.swift */; };
 		A2A3C01229B4852A0075A77B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01129B4852A0075A77B /* Message.swift */; };
-		A2A3C01529B486E20075A77B /* ChatMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01329B486E20075A77B /* ChatMessage+CoreDataClass.swift */; };
-		A2A3C01629B486E20075A77B /* ChatMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01429B486E20075A77B /* ChatMessage+CoreDataProperties.swift */; };
 		A2A3C01829B489750075A77B /* ChatMessageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01729B489750075A77B /* ChatMessageDataManager.swift */; };
 		A2A3C01A29B48FC70075A77B /* ConversationRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01929B48FC70075A77B /* ConversationRow.swift */; };
 		A2A3C02429B4918B0075A77B /* ConversationList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02329B4918B0075A77B /* ConversationList.swift */; };
 		A2A3C02729B4936F0075A77B /* ChatConversation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02529B4936F0075A77B /* ChatConversation+CoreDataClass.swift */; };
 		A2A3C02829B4936F0075A77B /* ChatConversation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02629B4936F0075A77B /* ChatConversation+CoreDataProperties.swift */; };
+		A2A3C02A29B494B60075A77B /* ChatConversationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02929B494B60075A77B /* ChatConversationDataManager.swift */; };
+		A2A3C02D29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02B29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift */; };
+		A2A3C02E29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02C29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift */; };
 		EE69D3B20BDA8C66115480A6 /* Pods_Lo_Li.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF8ACA897B2188290B58D47 /* Pods_Lo_Li.framework */; };
 /* End PBXBuildFile section */
 
@@ -239,13 +240,14 @@
 		A2A3C00429B461130075A77B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
 		A2A3C00629B466F30075A77B /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		A2A3C01129B4852A0075A77B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
-		A2A3C01329B486E20075A77B /* ChatMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMessage+CoreDataClass.swift"; path = "Lo&Li/CoreData/ChatMessage+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
-		A2A3C01429B486E20075A77B /* ChatMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMessage+CoreDataProperties.swift"; path = "Lo&Li/CoreData/ChatMessage+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		A2A3C01729B489750075A77B /* ChatMessageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDataManager.swift; sourceTree = "<group>"; };
 		A2A3C01929B48FC70075A77B /* ConversationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRow.swift; sourceTree = "<group>"; };
 		A2A3C02329B4918B0075A77B /* ConversationList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationList.swift; sourceTree = "<group>"; };
 		A2A3C02529B4936F0075A77B /* ChatConversation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatConversation+CoreDataClass.swift"; path = "Lo&Li/CoreData/ChatConversation+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		A2A3C02629B4936F0075A77B /* ChatConversation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatConversation+CoreDataProperties.swift"; path = "Lo&Li/CoreData/ChatConversation+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
+		A2A3C02929B494B60075A77B /* ChatConversationDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatConversationDataManager.swift; sourceTree = "<group>"; };
+		A2A3C02B29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMessage+CoreDataClass.swift"; path = "Lo&Li/CoreData/ChatMessage+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
+		A2A3C02C29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMessage+CoreDataProperties.swift"; path = "Lo&Li/CoreData/ChatMessage+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		A2C70A1B7AFD9741DB2213C8 /* Pods-Lo&LiMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lo&LiMac.release.xcconfig"; path = "Target Support Files/Pods-Lo&LiMac/Pods-Lo&LiMac.release.xcconfig"; sourceTree = "<group>"; };
 		DC0F1DC959EC1AD9B65718B4 /* Pods-Lo&Li.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lo&Li.debug.xcconfig"; path = "Target Support Files/Pods-Lo&Li/Pods-Lo&Li.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -570,6 +572,7 @@
 				A2A3BFFA29B452730075A77B /* SettingViewModel.swift */,
 				A2A3C00429B461130075A77B /* ChatViewModel.swift */,
 				A2A3C01729B489750075A77B /* ChatMessageDataManager.swift */,
+				A2A3C02929B494B60075A77B /* ChatConversationDataManager.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -609,10 +612,10 @@
 		A22B748D29B437F00051C1E4 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				A2A3C02B29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift */,
+				A2A3C02C29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift */,
 				A2A3C02529B4936F0075A77B /* ChatConversation+CoreDataClass.swift */,
 				A2A3C02629B4936F0075A77B /* ChatConversation+CoreDataProperties.swift */,
-				A2A3C01329B486E20075A77B /* ChatMessage+CoreDataClass.swift */,
-				A2A3C01429B486E20075A77B /* ChatMessage+CoreDataProperties.swift */,
 				A22B73A029B422C00051C1E4 /* Lo_Li.xcdatamodeld */,
 				A22B739E29B422C00051C1E4 /* Persistence.swift */,
 			);
@@ -823,6 +826,7 @@
 				A22B745F29B4371D0051C1E4 /* PublicStruct.swift in Sources */,
 				A22B743D29B437160051C1E4 /* Publisher+++.swift in Sources */,
 				A22B743C29B437160051C1E4 /* String+++.swift in Sources */,
+				A2A3C02A29B494B60075A77B /* ChatConversationDataManager.swift in Sources */,
 				A22B741429B437110051C1E4 /* MoyaResult+Extension.swift in Sources */,
 				A22B743029B437160051C1E4 /* Date+++.swift in Sources */,
 				A22B743429B437160051C1E4 /* UIScrollView+++.swift in Sources */,
@@ -833,6 +837,7 @@
 				A22B741729B437110051C1E4 /* NetWorking.swift in Sources */,
 				A22B748129B4378A0051C1E4 /* Public.swift in Sources */,
 				A2A3C02829B4936F0075A77B /* ChatConversation+CoreDataProperties.swift in Sources */,
+				A2A3C02E29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift in Sources */,
 				A22B747729B437720051C1E4 /* StoreManager.swift in Sources */,
 				A22B741929B437110051C1E4 /* TokenPlugin.swift in Sources */,
 				A22B73E229B4354F0051C1E4 /* Tosta.swift in Sources */,
@@ -856,7 +861,6 @@
 				A2A3C01829B489750075A77B /* ChatMessageDataManager.swift in Sources */,
 				A2A3BFED29B450CB0075A77B /* ChatView.swift in Sources */,
 				A22B745829B4371D0051C1E4 /* Preferences.swift in Sources */,
-				A2A3C01529B486E20075A77B /* ChatMessage+CoreDataClass.swift in Sources */,
 				A22B73DE29B4354F0051C1E4 /* ViewModifiers.swift in Sources */,
 				A22B73A429B422C00051C1E4 /* ContentView.swift in Sources */,
 				A2A3C02429B4918B0075A77B /* ConversationList.swift in Sources */,
@@ -879,6 +883,7 @@
 				A22B73E429B4354F0051C1E4 /* FantasyToggle.swift in Sources */,
 				A22B73EA29B4354F0051C1E4 /* Padding.swift in Sources */,
 				A22B743129B437160051C1E4 /* Clandar+++.swift in Sources */,
+				A2A3C02D29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift in Sources */,
 				A22B73F729B4354F0051C1E4 /* LottieAnimations.swift in Sources */,
 				A22B743929B437160051C1E4 /* URL++.swift in Sources */,
 				A22B743629B437160051C1E4 /* FileManager++.swift in Sources */,
@@ -900,7 +905,6 @@
 				A22B747329B437720051C1E4 /* UserManager.swift in Sources */,
 				A22B746629B4371D0051C1E4 /* SystemTools.swift in Sources */,
 				A22B743229B437160051C1E4 /* Animation++.swift in Sources */,
-				A2A3C01629B486E20075A77B /* ChatMessage+CoreDataProperties.swift in Sources */,
 				A22B73E629B4354F0051C1E4 /* Line.swift in Sources */,
 				A22B73E029B4354F0051C1E4 /* PFTextEditor.swift in Sources */,
 				A22B748029B4378A0051C1E4 /* Apple.swift in Sources */,
@@ -1069,7 +1073,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1111,7 +1115,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
-				SUPPORTS_MACCATALYST = YES;
+				SUPPORTS_MACCATALYST = NO;
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

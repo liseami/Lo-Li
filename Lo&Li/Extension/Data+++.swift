@@ -27,3 +27,8 @@ extension Data {
 }
 
 
+extension Convertible {
+    var stringData: Data {
+        kj.JSONString().data(using: .utf8)!
+    }
+}

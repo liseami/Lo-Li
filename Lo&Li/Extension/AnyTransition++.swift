@@ -32,7 +32,10 @@ struct TestView: View {
                             self.things.append(.init())
                         }
                     } label: {
-                        ICON(sysname: "plus")
+                        ICON(sysname: "plus"){
+                            ChatConversation(context: PersistenceController.shared.container.viewContext)
+                                .addNew()
+                        }
                     }
                     Button {
                         withAnimation(.default) {

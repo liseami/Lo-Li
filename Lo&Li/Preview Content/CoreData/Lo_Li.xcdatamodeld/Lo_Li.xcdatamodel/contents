@@ -8,7 +8,7 @@
         <relationship name="messages" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="ChatMessage" inverseName="conversation" inverseEntity="ChatMessage"/>
     </entity>
     <entity name="ChatMessage" representedClassName="ChatMessage" syncable="YES">
-        <attribute name="createat" attributeType="String"/>
+        <attribute name="createat" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="data" attributeType="Binary"/>
         <attribute name="id" attributeType="String"/>
         <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ChatConversation" inverseName="messages" inverseEntity="ChatConversation"/>
