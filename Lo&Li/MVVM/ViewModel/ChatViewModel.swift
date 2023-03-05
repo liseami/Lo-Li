@@ -7,39 +7,33 @@
 
 import Foundation
 
-
-
 class ChatViewModel: ObservableObject {
     @Published var currentModel: String = "gpt-3.5-turbo"
     @Published var userInput: String = ""
-    @Published var messageList: [MessageToShow] = []
+
     @Published var isLoading: Bool = false
 
     func sendMessage() {
         self.isLoading = true
-        withAnimation(.NaduoSpring) {
-            self.isLoading = false
-            guard let response = MockTool.readObject(ChatResponse.self, fileName: "citys", atKeyPath: nil) else { return }
-            self.messageList.insert(contentsOf: response.choices.map { ChatResponseChoice in
-                MessageToShow(content: ChatResponseChoice.message.content, role: ChatResponseChoice.message.roleType, createat: response.created, tokens: response.usage.total_tokens)
-            }, at: 0)
-        }
+        let viewContext = PersistenceController.shared.container.viewContext
+        // 向本地数据库添加一条用户发送的信息
+        ChatMessage(context: viewContext).addNew(mod: MessageToShow(id: "", content: self.userInput, role: MessageToShow.Role.user.rawValue, createat: Date.now.timestamp.string, tokens: ""))
 //        self.messageList.insert(MessageToShow(content: self.userInput, role: .user, createat: Date.now.timestamp.string), at: 0)
-//        self.userInput.removeAll()
-//        let chatHistory = self.messageList.reversed().map { MessageToShow in
-//            ChatMessage(role: MessageToShow.role.rawValue, content: MessageToShow.content)
-//        }
-//        let target = OpenAPI.chat(p: .init(model: self.currentModel, messages: chatHistory))
-//        Networking.requestObject(target, modeType: ChatResponse.self, atKeyPath: nil) { r, obj in
-//            if r.isSuccess, let obj {
-//                withAnimation(.NaduoSpring) {
-//                    self.messageList.insert(contentsOf: obj.choices.map { ChatResponseChoice in
-//                        MessageToShow(content: ChatResponseChoice.message.content, role: ChatResponseChoice.message.roleType, createat: obj.created, tokens: obj.usage.total_tokens)
-//                    }, at: 0)
-//                }
-//            }
-//            self.isLoading = false
-//        }
+        self.userInput.removeAll()
+        // 总结历史信息
+        let chatHistory = ChatMessageDataManager.shared.messages.reversed().map { ChatMessage in
+            ChatMessageModel(role: ChatMessage.wrapvalue.role, content: ChatMessage.wrapvalue.content)
+        }
+        // 用会话中的历史信息一起请求新的回答
+        let target = OpenAPI.chat(p: .init(model: self.currentModel, messages: chatHistory))
+        Networking.requestObject(target, modeType: ChatResponse.self, atKeyPath: nil) { r, obj in
+            if r.isSuccess, let obj {
+                obj.choices.forEach { ChatResponseChoice in
+                    // 将新的回答插入数据库
+                    ChatMessage(context: viewContext).addNew(mod: MessageToShow(content: ChatResponseChoice.message.content, role: MessageToShow.Role.assistant.rawValue, createat: obj.created, tokens: obj.usage.total_tokens))
+                }
+            }
+            self.isLoading = false
+        }
     }
 }
-

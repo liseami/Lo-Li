@@ -9,27 +9,36 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var uistate: UIState = .init()
-    @StateObject var chatViewModel : ChatViewModel = .init()
+    @StateObject var chatViewModel: ChatViewModel = .init()
     var body: some View {
         ZStack {
             NavigationSplitView(columnVisibility: $uistate.columnVisibility) {
                 VStack {
                     ScrollView(.vertical, showsIndicators: false) {
-                        ForEach(0 ..< 5) { _ in
-                            Text("会话")
+                        LazyVStack(alignment: .leading, spacing: 12) {
+                            ForEach(0 ..< 5) { _ in
+                                ConversationRow(selected: Bool.random())
+                            }
                         }
+                        .padding(.horizontal, 12)
+                    }
+                    HStack {
+                        ICON(name: "settinggear") {
+                            Present(SettingView(), style: .pageSheet)
+                        }
+                        Spacer()
+                    }
+                    .padding(.all)
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        ICON(name: "plus")
                     }
                 }
-                HStack {
-                    ICON(name: "settinggear") {
-                        Present(SettingView(), style: .pageSheet)
-                    }
-                    Spacer()
-                }
-                .padding(.all)
 
             } detail: {
                 ChatView()
+                    .navigationBarTitleDisplayMode(.inline)
                     .environmentObject(chatViewModel)
             }
             .navigationSplitViewStyle(.automatic)

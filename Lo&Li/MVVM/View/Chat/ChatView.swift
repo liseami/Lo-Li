@@ -9,6 +9,14 @@ import SwiftUI
 
 struct ChatView: View {
     @EnvironmentObject var vm: ChatViewModel
+
+    @FetchRequest(entity: ChatMessage.entity(), sortDescriptors: [
+        NSSortDescriptor(keyPath: \ChatMessage.createat, ascending: false),
+    ])
+    var messages: FetchedResults<ChatMessage>
+
+
+
     var body: some View {
         GeometryReader(content: { GeometryProxy in
             let w = GeometryProxy.size.width
@@ -16,51 +24,59 @@ struct ChatView: View {
                 Spacer().frame(height: 150, alignment: .center)
                 ProgressView().frame(height: 32, alignment: .center)
                     .ifshow(vm.isLoading)
-                ForEach(vm.messageList, id: \.createat) { message in
-                    switch message.role {
-                    case .user:
-                        Text(message.content)
-                            .ndFont(.body1b, color: .b1)
-                            .padding(.all)
-                            .frame(minWidth: 40, alignment: .trailing)
-                            .addBack(cornerRadius: 10, backGroundColor: .teal, strokeLineWidth: 0, strokeFColor: .clear)
-                            .NaduoShadow(color: .f2, style: .s300)
-                            .NaduoShadow(color: .f3, style: .s100)
-                            .padding(.all, 12)
-                            .frame(maxWidth: w * 0.618, alignment: .trailing)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .scaleEffect(x: 1, y: -1, anchor: .center)
+                ForEach(messages, id: \.createat) { messageEntity in
+                    let message = messageEntity.wrapvalue
+                    Group{
+                        switch message.roletype {
+                        case .user:
+                            Text(message.content)
+                                .ndFont(.body1b, color: .b1)
+                                .padding(.all)
+                                .frame(minWidth: 40, alignment: .trailing)
+                                .addBack(cornerRadius: 10, backGroundColor: .teal, strokeLineWidth: 0, strokeFColor: .clear)
+                                .NaduoShadow(color: .f2, style: .s300)
+                                .NaduoShadow(color: .f3, style: .s100)
+                                .padding(.all, 12)
+                                .frame(maxWidth: w * 0.618, alignment: .trailing)
+                                .frame(maxWidth: .infinity, alignment: .trailing)
+                                .scaleEffect(x: 1, y: -1, anchor: .center)
 
-                    case .assistant:
-                        HStack(alignment: .top, spacing: 12) {
-                            Image("openapiavatar")
-                                .resizable()
-                                .frame(width: 44, height: 44, alignment: .center)
-                                .addBack(cornerRadius: 12, backGroundColor: .b1, strokeLineWidth: 1, strokeFColor: .b2)
-                                .padding(.top, 12)
-                            VStack(alignment: .leading, spacing: 12) {
-                                TextField("", text: .constant(message.content), axis: .vertical)
-                                Text("\(message.tokens) Tokens")
-                                    .font(.system(size: 14, weight: .thin, design: .monospaced))
-                                    .foregroundColor(.teal)
+                        case .assistant:
+                            HStack(alignment: .top, spacing: 12) {
+                                Image("openapiavatar")
+                                    .resizable()
+                                    .frame(width: 44, height: 44, alignment: .center)
+                                    .addBack(cornerRadius: 12, backGroundColor: .b1, strokeLineWidth: 1, strokeFColor: .b2)
+                                    .padding(.top, 12)
+                                VStack(alignment: .leading, spacing: 12) {
+                                    TextField("", text: .constant(message.content), axis: .vertical)
+                                    Text("\(message.tokens) Tokens")
+                                        .font(.system(size: 14, weight: .thin, design: .monospaced))
+                                        .foregroundColor(.teal)
+                                }
+                                .lineSpacing(2)
+                                .addLoliCardBack()
                             }
-                            .lineSpacing(2)
-                            .addLoliCardBack()
+                            .padding(.all, 12)
+                            .frame(maxWidth: w * 0.618, alignment: .leading)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .scaleEffect(x: 1, y: -1, anchor: .center)
                         }
-                        .padding(.all, 12)
-                        .frame(maxWidth: w * 0.618, alignment: .leading)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .scaleEffect(x: 1, y: -1, anchor: .center)
+                    }
+                    .contextMenu {
+                        PF_MenuBtn(text: "删除", name: "trash", color: .red) {
+                            PersistenceController.shared.container.viewContext.delete(messageEntity)
+                        }
                     }
                 }
             }
         })
-        .onAppear(perform: {
-            vm.userInput = "你好，从来就没有什么救世主。"
-            delayWork(0.1) {
-                vm.sendMessage()
-            }
-        })
+//        .onAppear(perform: {
+//            vm.userInput = "你好，从来就没有什么救世主。"
+//            delayWork(0.1) {
+//                vm.sendMessage()
+//            }
+//        })
         .frame(maxWidth: .infinity)
         .scaleEffect(x: 1, y: -1, anchor: .center)
         .overlay(alignment: .bottom) {

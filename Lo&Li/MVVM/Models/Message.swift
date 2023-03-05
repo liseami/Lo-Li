@@ -7,15 +7,22 @@
 
 import SwiftUI
 
-
 struct MessageToShow: Convertible {
-    enum Role: String {
+    enum Role: String, CaseIterable {
         case user
-        case assistant = "assistant"
+        case assistant
     }
-    var id : String = ""
+
+    var id: String = ""
     var content: String = ""
-    var role: Role = .user
+    var roletype: Role {
+        Role.allCases.first { Role in
+            Role.rawValue == role
+        } ?? .user
+    }
+
+    var role: String = ""
+
     var createat: String = ""
     var tokens: String = ""
 }
@@ -42,8 +49,9 @@ struct ChatUsage: Convertible {
 
 struct ChatMessageModel: Convertible {
     var roleType: MessageToShow.Role {
-        return self.role == "user" ? .user : .assistant
+        return role == "user" ? .user : .assistant
     }
+
     var role: String = ""
     var content: String = ""
 }
