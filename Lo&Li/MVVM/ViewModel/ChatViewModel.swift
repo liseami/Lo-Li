@@ -18,13 +18,13 @@ class ChatViewModel: ObservableObject {
     }
 
     func sendMessage() {
+        guard !userInput.isEmpty else { pushPop("空内容无法发送。", style: .onlytext); return }
         let viewContext = PersistenceController.shared.container.viewContext
-
         let send = {
             guard let currentConversation = self.currentConversation else { return }
             self.isLoading = true
             // 向本地数据库添加一条用户发送的信息
-            let new = ChatMessage(context: viewContext).creatNew(mod: MessageToShow(id: "", content: self.userInput, role: MessageToShow.Role.user.rawValue, createat: Date.now.timestamp.string , tokens: ""))
+            let new = ChatMessage(context: viewContext).creatNew(mod: MessageToShow(id: "", content: self.userInput, role: MessageToShow.Role.user.rawValue, createat: Date.now.timestamp.string, tokens: ""))
             new.conversation = currentConversation
             coreDataSave {
                 //        self.messageList.insert(MessageToShow(content: self.userInput, role: .user, createat: Date.now.timestamp.string), at: 0)

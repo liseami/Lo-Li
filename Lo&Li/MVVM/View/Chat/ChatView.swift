@@ -5,11 +5,13 @@
 //  Created by 赵翔宇 on 2023/3/5.
 //
 
+
 import SwiftUI
+import WebKit
 
 struct ChatView: View {
     @EnvironmentObject var vm: ChatViewModel
-
+    @Environment(\.managedObjectContext) private var viewContext
     var currentConversation: ChatConversation? {
         vm.currentConversation
     }
@@ -43,46 +45,27 @@ struct ChatView: View {
                     Group {
                         switch message.roletype {
                         case .user:
-                            Text(message.content)
+                            TextField("", text: .constant(message.content), axis: .vertical)
                                 .ndFont(.body1b, color: .b2)
                                 .padding(.all)
                                 .frame(minWidth: 40, alignment: .trailing)
                                 .addBack(cornerRadius: 10, backGroundColor: .teal, strokeLineWidth: 0, strokeFColor: .clear)
                                 .NaduoShadow(color: .f2, style: .s300)
                                 .NaduoShadow(color: .f3, style: .s100)
-                                .frame(maxWidth: w * 0.618, alignment: .trailing)
+                                .frame(maxWidth: w * 0.618 * 0.618, alignment: .trailing)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
                                 .padding(.horizontal)
                                 .padding(.horizontal, 12)
                                 .scaleEffect(x: 1, y: -1, anchor: .center)
 
                         case .assistant:
-                            HStack(alignment: .top, spacing: 12) {
-                                Image("openapiavatar")
-                                    .resizable()
-                                    .frame(width: 44, height: 44, alignment: .center)
-                                    .addBack(cornerRadius: 12, backGroundColor: .b1, strokeLineWidth: 1, strokeFColor: .b2)
-                                    .padding(.top, 12)
-                                VStack(alignment: .leading, spacing: 12) {
-                                    TextField("", text: .constant(message.content), axis: .vertical)
-                                        .ndFont(.body1, color: .f1)
-                                    Text("\(message.tokens) Tokens")
-                                        .font(.system(size: 14, weight: .thin, design: .monospaced))
-                                        .foregroundColor(.teal)
-                                }
-                                .lineSpacing(2)
-                                .addLoliCardBack()
-                            }
-                            .frame(maxWidth: w * 0.618, alignment: .leading)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
-                            .padding(.horizontal, 12)
-                            .scaleEffect(x: 1, y: -1, anchor: .center)
+                            AssistantMessage(message: message, w: w)
+                                .scaleEffect(x: 1, y: -1, anchor: .center)
                         }
                     }
                     .contextMenu {
                         PF_MenuBtn(text: "删除", name: "trash", color: .red) {
-                            PersistenceController.shared.container.viewContext.delete(messageEntity)
+                            viewContext.delete(messageEntity)
                             coreDataSave {
                                 vm.objectWillChange.send()
                             } onError: {}
@@ -96,6 +79,32 @@ struct ChatView: View {
                 inputView
             }
         })
+        .overlay(
+            HStack(spacing: 16) {
+                Spacer()
+                ICON(sysname: "list.bullet.indent", fcolor: .f1, size: 24, fontWeight: .regular) {
+                    UIState.shared.columnVisibility = NavigationSplitViewVisibility.all
+                }
+                ICON(sysname: "arrow.clockwise", fcolor: .f1, size: 24, fontWeight: .regular) {
+                    AppHelper().presentAlert(withTitle: "确定要清空对话？", message: "不可恢复。", actions: [.init(title: "确认", style: .destructive), .init(title: "点错了", style: .cancel)]) { UIAlertAction in
+                        if UIAlertAction.title == "确认" {
+                            vm.currentConversation?.messages?.forEach { message in
+                                viewContext.delete(message)
+                            }
+                            coreDataSave {
+                                vm.objectWillChange.send()
+                            } onError: {}
+                        }
+                    }
+                }
+            }
+            .addGoldenPadding()
+            .addLoliBtnBack()
+            .frame(maxWidth: 200)
+            .frame(maxWidth: .infinity, alignment: .trailing)
+            .padding(.all),
+
+            alignment: .top)
         .navigationBarHidden(true)
     }
 
@@ -120,7 +129,7 @@ struct ChatView: View {
             Button {
                 vm.sendMessage()
             } label: {
-                ICON(name: "send",fcolor: .f1)
+                ICON(name: "send", fcolor: .f1)
                     .frame(width: 44, height: 44, alignment: .center)
                     .addBack(cornerRadius: 10, backGroundColor: .b2, strokeLineWidth: 0, strokeFColor: .clear)
                     .NaduoShadow(color: .f2, style: .s300)
@@ -159,5 +168,31 @@ struct ChatView_Previews: PreviewProvider {
     static var previews: some View {
         ChatView()
             .environmentObject(ChatViewModel())
+    }
+}
+
+struct WebView: UIViewRepresentable {
+    var html: String
+
+    init(html: String) {
+        self.html = html
+    }
+
+    func makeUIView(context: Context) -> WKWebView {
+        let webView = WKWebView()
+        return webView
+    }
+
+    func updateUIView(_ uiView: WKWebView, context: Context) {
+        let css = """
+        <style>
+        body {
+            background-color: #FBFAF9;
+            color: black;
+            font-size: 20px;
+        }
+        </style>
+        """
+        uiView.loadHTMLString(css + html, baseURL: nil)
     }
 }

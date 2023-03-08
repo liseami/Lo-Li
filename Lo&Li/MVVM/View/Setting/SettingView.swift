@@ -17,7 +17,7 @@ struct SettingView: View {
                 LazyVStack(alignment: .leading, spacing: .Naduo.padding32) {
                     ForEach(vm.settingGroup, id: \.name) { group in
                         PageSection(type: .small(title: group.name, iconname: nil)) {
-                            VStack(alignment: .leading, spacing: .Naduo.padding24) {
+                            VStack(alignment: .leading, spacing: .Naduo.padding8) {
                                 if let items = group.children {
                                     ForEach(items, id: \.name) { item in
                                         SettingListRow(name: item.name) {

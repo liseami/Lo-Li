@@ -13,8 +13,7 @@ struct ContentView: View {
     @ObservedObject var userManager: UserManager = .shared
     @ObservedObject var uistate: UIState = .shared
     @Environment(\.colorScheme) private var systemColorSheme
-        
-  
+
     var body: some View {
         Group {
             if userManager.logged {
@@ -23,7 +22,9 @@ struct ContentView: View {
                 TokenGetView()
             }
         }
-        .environment(\.colorScheme, uistate.ColorShemeModel == 0 ? systemColorSheme : uistate.ColorShemeModel == 1 ? .light : .dark)
+        .environment(\.colorScheme,
+                     uistate.ColorShemeModel == 0 ? systemColorSheme :
+                         uistate.ColorShemeModel == 1 ? .light : .dark)
     }
 }
 

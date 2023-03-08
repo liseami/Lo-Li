@@ -14,42 +14,51 @@ struct TokenGetView: View {
     }
 
     var body: some View {
-        GeometryReader { GeometryProxy in
-            let w = GeometryProxy.size.width
-            VStack(spacing: 32) {
-                Text("Lo&Li需要你的Token才能运行")
-                    .ndFont(.t1b)
-                Text("去 [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys) 创建并复制你的Token")
-                    .ndFont(.body1)
+        ZStack {
+            Color.b1.ignoresSafeArea()
+            GeometryReader { GeometryProxy in
+                let w = GeometryProxy.size.width
+                VStack(spacing: 32) {
+                    Text("Lo&Li需要你的Token才能运行")
+                        .ndFont(.t1b)
+                    Text("去 [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys) 创建并复制你的Token")
+                        .ndFont(.body1)
 
-                if w > 400 {
-                    Group {
-                        inputView
-                        startBtn
+                    if w > 500 {
+                        Group {
+                            inputView
+                            startBtn
+                        }
+                        .frame(width: 777, alignment: .center)
+                    } else {
+                        Group {
+                            inputView
+                            startBtn
+                        }
+                        .padding(.horizontal, 16)
                     }
-                    .frame(width: 320, height: 320, alignment: .center)
-                } else {
-                    Group {
-                        inputView
-                        startBtn
-                    }
-                    .padding(.horizontal, 16)
                 }
+                .padding(.all)
+                .frame(maxHeight: .infinity, alignment: .center)
+                .frame(maxWidth: .infinity, alignment: .center)
             }
-            .padding(.all)
         }
     }
 
     var startBtn: some View {
         LoliBtn(type: .large, config: .init(title: "开始聊天", leftIcon: "send", btnColor: .b1, contentColor: .f1), status: .defult) {
-            UserManager.shared.AccessToken = tokenInput
+            DispatchQueue.main.async {
+                UserManager.shared.AccessToken = tokenInput
+            }
         }
-        .padding(.top, 120)
     }
 
     var inputView: some View {
         HStack(spacing: 8) {
             TextField("粘贴你的Token...", text: $tokenInput)
+                .font(.system(size: 24, weight: .thin, design: .rounded))
+
+                .multilineTextAlignment(.center)
                 .frame(height: 44, alignment: .center)
                 .padding(.horizontal)
                 .addBack(cornerRadius: 12, backGroundColor: .b1, strokeLineWidth: 0, strokeFColor: .clear)

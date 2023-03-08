@@ -13,6 +13,7 @@ struct ConversationRow: View {
 
     @State private var onHover: Bool = false
     @State private var newNameInput: String
+    @State private var isEditing: Bool = false
     init(chatConversation: ChatConversation, selected: Bool = false) {
         self.chatConversation = chatConversation
         self.selected = selected
@@ -21,18 +22,19 @@ struct ConversationRow: View {
 
     var body: some View {
         HStack {
-            if onHover {
+            if isEditing {
                 TextField("", text: $newNameInput)
-                    .ndFont(.body1, color: .f1)
+                    .ndFont(.body1, color: .f2)
                     .onSubmit {
                         chatConversation.title = self.newNameInput
                         coreDataSave {
                             AppHelper().popTosta(type: .ok(p: .init(title: "修改成功", subline: "对话名称已修改成功。")))
                         } onError: {}
+                        self.isEditing = false
                     }
             } else {
                 Text(chatConversation.title)
-                    .ndFont(.body1, color: .f1)
+                    .ndFont(.body1b, color: .f1)
             }
             Spacer()
         }
@@ -55,8 +57,12 @@ struct ConversationRow: View {
         .onHover { onHover in
             self.onHover = onHover
             if !onHover {
+                self.isEditing = false
                 self.newNameInput = chatConversation.title
             }
+        }
+        .onTapGesture(count: 2) {
+            self.isEditing = true
         }
     }
 }

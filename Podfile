@@ -21,6 +21,7 @@ pod 'BottomSheetSwiftUI'
 pod 'Down'
 #pod 'WechatOpenSDK-XCFramework'
 #pod 'AliyunOSSiOS'
+pod "MarkdownView"
 # 极光 推送、统计、验证、分享
 #pod 'JCore'
 #pod 'JPush'

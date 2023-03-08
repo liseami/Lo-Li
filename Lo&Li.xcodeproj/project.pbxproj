@@ -116,6 +116,7 @@
 		A2A3C02E29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02C29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift */; };
 		A2D6363A29B8F139005D5981 /* ColorShemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D6363929B8F139005D5981 /* ColorShemePicker.swift */; };
 		A2D6363C29B8F492005D5981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D6363B29B8F492005D5981 /* AppDelegate.swift */; };
+		A2D6364529B90656005D5981 /* AssistantMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D6364429B90656005D5981 /* AssistantMessage.swift */; };
 		A2F4422B29B8E6200061931E /* ailoading.json in Resources */ = {isa = PBXBuildFile; fileRef = A2F4422A29B8E6200061931E /* ailoading.json */; };
 		EE69D3B20BDA8C66115480A6 /* Pods_Lo_Li.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF8ACA897B2188290B58D47 /* Pods_Lo_Li.framework */; };
 /* End PBXBuildFile section */
@@ -238,6 +239,7 @@
 		A2C70A1B7AFD9741DB2213C8 /* Pods-Lo&LiMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lo&LiMac.release.xcconfig"; path = "Target Support Files/Pods-Lo&LiMac/Pods-Lo&LiMac.release.xcconfig"; sourceTree = "<group>"; };
 		A2D6363929B8F139005D5981 /* ColorShemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorShemePicker.swift; sourceTree = "<group>"; };
 		A2D6363B29B8F492005D5981 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A2D6364429B90656005D5981 /* AssistantMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssistantMessage.swift; sourceTree = "<group>"; };
 		A2F4422A29B8E6200061931E /* ailoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ailoading.json; sourceTree = "<group>"; };
 		DC0F1DC959EC1AD9B65718B4 /* Pods-Lo&Li.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lo&Li.debug.xcconfig"; path = "Target Support Files/Pods-Lo&Li/Pods-Lo&Li.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -628,6 +630,7 @@
 			isa = PBXGroup;
 			children = (
 				A2A3BFEC29B450CB0075A77B /* ChatView.swift */,
+				A2D6364429B90656005D5981 /* AssistantMessage.swift */,
 				A2A3C01929B48FC70075A77B /* ConversationRow.swift */,
 				A2A3C02329B4918B0075A77B /* ConversationList.swift */,
 			);
@@ -670,6 +673,8 @@
 			dependencies = (
 			);
 			name = "Lo&Li";
+			packageProductDependencies = (
+			);
 			productName = "Lo&Li";
 			productReference = A22B739929B422C00051C1E4 /* Lo&Li.app */;
 			productType = "com.apple.product-type.application";
@@ -698,6 +703,8 @@
 				Base,
 			);
 			mainGroup = A22B739029B422BF0051C1E4;
+			packageReferences = (
+			);
 			productRefGroup = A22B739A29B422C00051C1E4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -793,6 +800,7 @@
 				A2A3C02829B4936F0075A77B /* ChatConversation+CoreDataProperties.swift in Sources */,
 				A2A3C02E29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift in Sources */,
 				A22B747729B437720051C1E4 /* StoreManager.swift in Sources */,
+				A2D6364529B90656005D5981 /* AssistantMessage.swift in Sources */,
 				A22B741929B437110051C1E4 /* TokenPlugin.swift in Sources */,
 				A22B73E229B4354F0051C1E4 /* Tosta.swift in Sources */,
 				A22B73EB29B4354F0051C1E4 /* Font.swift in Sources */,
@@ -1022,14 +1030,13 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fantasy.lo-li";
+				PRODUCT_BUNDLE_IDENTIFIER = com.purefantasy.loli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1037,7 +1044,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Debug;
 		};
@@ -1068,14 +1075,13 @@
 				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 13.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.fantasy.lo-li";
+				PRODUCT_BUNDLE_IDENTIFIER = com.purefantasy.loli;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = auto;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1083,7 +1089,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2,6";
+				TARGETED_DEVICE_FAMILY = "2,6";
 			};
 			name = Release;
 		};
