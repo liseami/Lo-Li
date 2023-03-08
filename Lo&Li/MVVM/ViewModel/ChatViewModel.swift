@@ -30,7 +30,7 @@ class ChatViewModel: ObservableObject {
                 //        self.messageList.insert(MessageToShow(content: self.userInput, role: .user, createat: Date.now.timestamp.string), at: 0)
                 self.userInput.removeAll()
                 // 总结历史信息
-                let chatHistory = Array(currentConversation.messages ?? []).sorted(by: \.createat).reversed().map { ChatMessage in
+                let chatHistory = Array(currentConversation.messages ?? []).sorted(by: \.createat).map { ChatMessage in
                     ChatMessageModel(role: ChatMessage.wrapvalue.role, content: ChatMessage.wrapvalue.content)
                 }
                 // 用会话中的历史信息一起请求新的回答

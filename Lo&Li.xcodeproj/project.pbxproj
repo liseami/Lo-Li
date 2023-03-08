@@ -220,13 +220,6 @@
 		A22B747E29B4378A0051C1E4 /* Public.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Public.swift; sourceTree = "<group>"; };
 		A22B748229B437B00051C1E4 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		A22B748E29B438F80051C1E4 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A22B749629B43C780051C1E4 /* Lo_LiMacApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lo_LiMacApp.swift; sourceTree = "<group>"; };
-		A22B749829B43C780051C1E4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		A22B749A29B43C790051C1E4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A22B749D29B43C790051C1E4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		A22B749F29B43C790051C1E4 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
-		A22B74A229B43C790051C1E4 /* Lo_LiMac.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Lo_LiMac.xcdatamodel; sourceTree = "<group>"; };
-		A22B74A429B43C790051C1E4 /* Lo_LiMac.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Lo_LiMac.entitlements; sourceTree = "<group>"; };
 		A2A3BFE829B446EE0075A77B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A2A3BFEA29B44B600075A77B /* TokenGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGetView.swift; sourceTree = "<group>"; };
 		A2A3BFEC29B450CB0075A77B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -279,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				A22B739B29B422C00051C1E4 /* Lo&Li */,
-				A22B749529B43C780051C1E4 /* Lo&LiMac */,
 				A22B739A29B422C00051C1E4 /* Products */,
 				98BBDCBF5328AF90297D3125 /* Pods */,
 				EE1D4D0A048A413DCD8CF500 /* Frameworks */,
@@ -621,28 +613,6 @@
 			);
 			name = CoreData;
 			path = "Preview Content/CoreData";
-			sourceTree = "<group>";
-		};
-		A22B749529B43C780051C1E4 /* Lo&LiMac */ = {
-			isa = PBXGroup;
-			children = (
-				A22B749629B43C780051C1E4 /* Lo_LiMacApp.swift */,
-				A22B749829B43C780051C1E4 /* ContentView.swift */,
-				A22B749A29B43C790051C1E4 /* Assets.xcassets */,
-				A22B749F29B43C790051C1E4 /* Persistence.swift */,
-				A22B74A429B43C790051C1E4 /* Lo_LiMac.entitlements */,
-				A22B74A129B43C790051C1E4 /* Lo_LiMac.xcdatamodeld */,
-				A22B749C29B43C790051C1E4 /* Preview Content */,
-			);
-			path = "Lo&LiMac";
-			sourceTree = "<group>";
-		};
-		A22B749C29B43C790051C1E4 /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				A22B749D29B43C790051C1E4 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		A2A3BFE729B446E90075A77B /* View */ = {
@@ -1045,6 +1015,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Lo&Li/Lo_Li.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1054,16 +1025,19 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LoliChat;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -1087,6 +1061,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_ENTITLEMENTS = "Lo&Li/Lo_Li.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
@@ -1096,16 +1071,19 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = LoliChat;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UILaunchScreen_Generation[sdk=iphonesimulator*]" = YES;
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphoneos*]" = UIStatusBarStyleDefault;
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -1154,16 +1132,6 @@
 			);
 			currentVersion = A22B73A129B422C00051C1E4 /* Lo_Li.xcdatamodel */;
 			path = Lo_Li.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		A22B74A129B43C790051C1E4 /* Lo_LiMac.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				A22B74A229B43C790051C1E4 /* Lo_LiMac.xcdatamodel */,
-			);
-			currentVersion = A22B74A229B43C790051C1E4 /* Lo_LiMac.xcdatamodel */;
-			path = Lo_LiMac.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

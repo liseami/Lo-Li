@@ -12,11 +12,14 @@ struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var userManager: UserManager = .shared
     var body: some View {
-        if userManager.logged {
-            MainView()
-        } else {
-            TokenGetView()
+        Group{
+            if userManager.logged {
+                MainView()
+            } else {
+                TokenGetView()
+            }
         }
+        .environment(\.colorScheme, .light)
     }
 }
 

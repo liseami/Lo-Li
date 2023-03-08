@@ -21,6 +21,9 @@ struct ConversationList: View {
                     ForEach(chatConversations, id: \.createat) { chatConversation in
                         let selecte = vm.currentConversation?.id == chatConversation.id
                         ConversationRow(chatConversation: chatConversation, selected: selecte)
+                            .onTapGesture {
+                                vm.currentConversation = chatConversation
+                            }
                     }
                 }
                 .padding(.horizontal, 12)
