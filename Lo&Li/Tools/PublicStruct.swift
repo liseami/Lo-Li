@@ -276,8 +276,13 @@ struct VisualEffectView: UIViewRepresentable {
 }
 
 struct BlurView: View {
-    var colorSheme: UIBlurEffect.Style = .systemChromeMaterialLight
+    @ObservedObject var uistate: UIState = .shared
+    @Environment(\.colorScheme) private var systemColorSheme
+    var colorSheme: UIBlurEffect.Style {
+        uistate.ColorShemeModel == 0 ? (systemColorSheme == .light ?  .systemChromeMaterialLight : .systemChromeMaterialDark) : uistate.ColorShemeModel == 1 ? .systemChromeMaterialLight : .systemChromeMaterialDark
+    }
     var body: some View {
         VisualEffectView(effect: UIBlurEffect(style: colorSheme))
+        
     }
 }

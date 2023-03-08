@@ -25,7 +25,7 @@ struct SettingListRow: View {
                 Text(name)
                     .ndFont(.body1b, color: .f1)
                 Spacer()
-                ICON(name: icon, size: 18)
+                ICON(name: icon, fcolor: .f1, size: 18)
                     .rotationEffect(.init(degrees: icon == "chevrondown" ? -90 : 0), anchor: .center)
             }
             .padding(.all)

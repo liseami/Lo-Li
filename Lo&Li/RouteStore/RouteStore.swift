@@ -17,10 +17,10 @@ class RouteStore: NSObject {
         nav.delegate = self
         nav.interactivePopGestureRecognizer?.delegate = self
         navigationController = nav
-        let appearance = UINavigationBarAppearance()
-        guard let navibackbtn = UIImage(named: "navibackbtn") else { return }
-        appearance.setBackIndicatorImage( navibackbtn.withRenderingMode(.alwaysOriginal), transitionMaskImage: navibackbtn)
-        navigationController?.navigationBar.standardAppearance = appearance
+//        let appearance = UINavigationBarAppearance()
+//        guard let navibackbtn = UIImage(named: "navibackbtn") else { return }
+//        appearance.setBackIndicatorImage( navibackbtn.withRenderingMode(.alwaysOriginal), transitionMaskImage: navibackbtn)
+//        navigationController?.navigationBar.standardAppearance = appearance
     }
 
     func reset() {

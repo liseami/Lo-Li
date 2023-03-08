@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ConversationList: View {
+    @Environment(\.managedObjectContext) private var viewContext
     @EnvironmentObject var vm: ChatViewModel
     @FetchRequest(entity: ChatConversation.entity(), sortDescriptors: [
         NSSortDescriptor(keyPath: \ChatConversation.createat, ascending: false),
@@ -15,26 +16,25 @@ struct ConversationList: View {
     var chatConversations: FetchedResults<ChatConversation>
 
     var body: some View {
-        VStack {
-            ScrollView(.vertical, showsIndicators: false) {
-                LazyVStack(alignment: .leading, spacing: 12) {
-                    ForEach(chatConversations, id: \.createat) { chatConversation in
-                        let selecte = vm.currentConversation?.id == chatConversation.id
-                        ConversationRow(chatConversation: chatConversation, selected: selecte)
-                            .onTapGesture {
-                                vm.currentConversation = chatConversation
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack(alignment: .leading, spacing: 12) {
+                ForEach(chatConversations, id: \.createat) { chatConversation in
+                    let selecte = vm.currentConversation?.id == chatConversation.id
+                    ConversationRow(chatConversation: chatConversation, selected: selecte)
+                        .onTapGesture {
+                            vm.currentConversation = chatConversation
+                        }
+                        .contextMenu {
+                            PF_MenuBtn(text: "删除", sysname: "trash", color: .red) {
+                                // 删除
+                                self.vm.currentConversation = nil
+                                viewContext.delete(chatConversation)
+                                coreDataSave {} onError: {}
                             }
-                    }
+                        }
                 }
-                .padding(.horizontal, 12)
             }
-            HStack {
-                ICON(name: "settinggear") {
-                    Present(SettingView(), style: .pageSheet)
-                }
-                Spacer()
-            }
-            .padding(.all)
+            .padding(.horizontal, 12)
         }
     }
 }

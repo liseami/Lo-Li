@@ -8,18 +8,30 @@
 import SwiftUI
 
 struct MainView: View {
-    @StateObject var uistate: UIState = .init()
+    @ObservedObject var uistate: UIState = .shared
     @StateObject var chatViewModel: ChatViewModel = .init()
     var body: some View {
         ZStack {
             NavigationSplitView(columnVisibility: $uistate.columnVisibility) {
-                ConversationList()
-                    .environmentObject(chatViewModel)
+                VStack {
+                    ConversationList()
+                        .environmentObject(chatViewModel)
+                    HStack {
+                        ICON(name: "settinggear", fcolor: .f1) {
+                            PushTo(SettingView())
+                        }
+                        Spacer()
+                    }
+                    .padding(.all)
+                }
                 .toolbar {
                     ToolbarItem(placement: .navigationBarTrailing) {
-                        ICON(name: "plus"){
-                            ChatConversation(context: PersistenceController.shared.container.viewContext)
-                                .addNew()
+                        ICON(name: "plus", fcolor: .f1) {
+                            let new = ChatConversation(context: PersistenceController.shared.container.viewContext)
+                                .creatNew()
+                            coreDataSave {
+                                chatViewModel.currentConversation = new
+                            } onError: {}
                         }
                     }
                 }

@@ -633,7 +633,7 @@ struct CloudSheet: ViewModifier {
         Color.white
             .opacity(0.89)
             .ignoresSafeArea()
-        BlurView(colorSheme: .extraLight).ignoresSafeArea()
+        BlurView().ignoresSafeArea()
     }
 }
 
@@ -724,7 +724,7 @@ struct LoliCardModifier: ViewModifier {
     func body(content: Content) -> some View {
         content
             .padding(.all)
-            .addBack(cornerRadius: 24, backGroundColor: .b1, strokeLineWidth: 0, strokeFColor: .clear)
+            .addBack(cornerRadius: 24, backGroundColor: .b2, strokeLineWidth: 0, strokeFColor: .clear)
             .NaduoShadow(color: .f2, style: .s300)
             .NaduoShadow(color: .f3, style: .s100)
             .padding(.all, 6)

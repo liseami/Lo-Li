@@ -8,29 +8,14 @@
 import Foundation
 
 class UIState: ObservableObject {
-    init(currentDetail: DetailViewType = .chat) {
-        self.currentDetail = currentDetail
-    }
+    static let shared: UIState = .init()
 
-    enum DetailViewType: CaseIterable {
-        case chat, setting
-//        var iteminfo: ItemInfo {
-//            switch self {
-//            case .home:
-//                return .init(title: "主页", icon: "home")
-//            case .cloud:
-//                return .init(title: "云朵", icon: "cloud")
-//            case .add:
-//                return .init(title: "添加", icon: "plus")
-//            case .search:
-//                return .init(title: "搜索", icon: "find")
-//            case .workbench:
-//                return .init(title: "我的", icon: "myitems")
-//            }
-//        }
+    @AppStorage("ColorShemeModel") var ColorShemeModel: Int = 0{
+        didSet {
+            self.objectWillChange.send()
+        }
     }
-
-    @Published var currentDetail: DetailViewType = .chat
+    
     @Published var columnVisibility =
-    NavigationSplitViewVisibility.all
+        NavigationSplitViewVisibility.all
 }

@@ -34,13 +34,10 @@
 		A22B73ED29B4354F0051C1E4 /* Tosta_Check_OK.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73CC29B4354F0051C1E4 /* Tosta_Check_OK.json */; };
 		A22B73EE29B4354F0051C1E4 /* Tosta_Check_Phone.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73CD29B4354F0051C1E4 /* Tosta_Check_Phone.json */; };
 		A22B73EF29B4354F0051C1E4 /* Tosta_Check_Trash.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73CE29B4354F0051C1E4 /* Tosta_Check_Trash.json */; };
-		A22B73F029B4354F0051C1E4 /* wellcome.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73CF29B4354F0051C1E4 /* wellcome.json */; };
-		A22B73F129B4354F0051C1E4 /* loginsky.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73D029B4354F0051C1E4 /* loginsky.json */; };
 		A22B73F229B4354F0051C1E4 /* red_bell.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73D229B4354F0051C1E4 /* red_bell.json */; };
 		A22B73F329B4354F0051C1E4 /* blue_bell.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73D329B4354F0051C1E4 /* blue_bell.json */; };
 		A22B73F429B4354F0051C1E4 /* yellow_bell.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73D429B4354F0051C1E4 /* yellow_bell.json */; };
 		A22B73F529B4354F0051C1E4 /* green_bell.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73D529B4354F0051C1E4 /* green_bell.json */; };
-		A22B73F629B4354F0051C1E4 /* launchtext.json in Resources */ = {isa = PBXBuildFile; fileRef = A22B73D629B4354F0051C1E4 /* launchtext.json */; };
 		A22B73F729B4354F0051C1E4 /* LottieAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22B73D729B4354F0051C1E4 /* LottieAnimations.swift */; };
 		A22B73F829B4354F0051C1E4 /* LottieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22B73D829B4354F0051C1E4 /* LottieView.swift */; };
 		A22B73F929B4354F0051C1E4 /* NaduoDesginSystemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22B73DA29B4354F0051C1E4 /* NaduoDesginSystemView.swift */; };
@@ -107,7 +104,6 @@
 		A2A3BFFB29B452730075A77B /* SettingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3BFFA29B452730075A77B /* SettingViewModel.swift */; };
 		A2A3BFFD29B45A010075A77B /* ModelListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3BFFC29B45A010075A77B /* ModelListView.swift */; };
 		A2A3BFFF29B45BE60075A77B /* MockTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3BFFE29B45BE60075A77B /* MockTool.swift */; };
-		A2A3C00329B45F670075A77B /* citys.json in Resources */ = {isa = PBXBuildFile; fileRef = A2A3C00229B45F670075A77B /* citys.json */; };
 		A2A3C00529B461130075A77B /* ChatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C00429B461130075A77B /* ChatViewModel.swift */; };
 		A2A3C01229B4852A0075A77B /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01129B4852A0075A77B /* Message.swift */; };
 		A2A3C01829B489750075A77B /* ChatMessageDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C01729B489750075A77B /* ChatMessageDataManager.swift */; };
@@ -118,6 +114,9 @@
 		A2A3C02A29B494B60075A77B /* ChatConversationDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02929B494B60075A77B /* ChatConversationDataManager.swift */; };
 		A2A3C02D29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02B29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift */; };
 		A2A3C02E29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3C02C29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift */; };
+		A2D6363A29B8F139005D5981 /* ColorShemePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D6363929B8F139005D5981 /* ColorShemePicker.swift */; };
+		A2D6363C29B8F492005D5981 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D6363B29B8F492005D5981 /* AppDelegate.swift */; };
+		A2F4422B29B8E6200061931E /* ailoading.json in Resources */ = {isa = PBXBuildFile; fileRef = A2F4422A29B8E6200061931E /* ailoading.json */; };
 		EE69D3B20BDA8C66115480A6 /* Pods_Lo_Li.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0BF8ACA897B2188290B58D47 /* Pods_Lo_Li.framework */; };
 /* End PBXBuildFile section */
 
@@ -155,13 +154,10 @@
 		A22B73CC29B4354F0051C1E4 /* Tosta_Check_OK.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tosta_Check_OK.json; sourceTree = "<group>"; };
 		A22B73CD29B4354F0051C1E4 /* Tosta_Check_Phone.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tosta_Check_Phone.json; sourceTree = "<group>"; };
 		A22B73CE29B4354F0051C1E4 /* Tosta_Check_Trash.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Tosta_Check_Trash.json; sourceTree = "<group>"; };
-		A22B73CF29B4354F0051C1E4 /* wellcome.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = wellcome.json; sourceTree = "<group>"; };
-		A22B73D029B4354F0051C1E4 /* loginsky.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loginsky.json; sourceTree = "<group>"; };
 		A22B73D229B4354F0051C1E4 /* red_bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = red_bell.json; sourceTree = "<group>"; };
 		A22B73D329B4354F0051C1E4 /* blue_bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blue_bell.json; sourceTree = "<group>"; };
 		A22B73D429B4354F0051C1E4 /* yellow_bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = yellow_bell.json; sourceTree = "<group>"; };
 		A22B73D529B4354F0051C1E4 /* green_bell.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = green_bell.json; sourceTree = "<group>"; };
-		A22B73D629B4354F0051C1E4 /* launchtext.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = launchtext.json; sourceTree = "<group>"; };
 		A22B73D729B4354F0051C1E4 /* LottieAnimations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieAnimations.swift; sourceTree = "<group>"; };
 		A22B73D829B4354F0051C1E4 /* LottieView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LottieView.swift; sourceTree = "<group>"; };
 		A22B73DA29B4354F0051C1E4 /* NaduoDesginSystemView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NaduoDesginSystemView.swift; sourceTree = "<group>"; };
@@ -229,9 +225,7 @@
 		A2A3BFFA29B452730075A77B /* SettingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewModel.swift; sourceTree = "<group>"; };
 		A2A3BFFC29B45A010075A77B /* ModelListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelListView.swift; sourceTree = "<group>"; };
 		A2A3BFFE29B45BE60075A77B /* MockTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockTool.swift; sourceTree = "<group>"; };
-		A2A3C00229B45F670075A77B /* citys.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = citys.json; sourceTree = "<group>"; };
 		A2A3C00429B461130075A77B /* ChatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewModel.swift; sourceTree = "<group>"; };
-		A2A3C00629B466F30075A77B /* response.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = response.json; sourceTree = "<group>"; };
 		A2A3C01129B4852A0075A77B /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 		A2A3C01729B489750075A77B /* ChatMessageDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatMessageDataManager.swift; sourceTree = "<group>"; };
 		A2A3C01929B48FC70075A77B /* ConversationRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationRow.swift; sourceTree = "<group>"; };
@@ -242,6 +236,9 @@
 		A2A3C02B29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMessage+CoreDataClass.swift"; path = "Lo&Li/CoreData/ChatMessage+CoreDataClass.swift"; sourceTree = SOURCE_ROOT; };
 		A2A3C02C29B4A05A0075A77B /* ChatMessage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "ChatMessage+CoreDataProperties.swift"; path = "Lo&Li/CoreData/ChatMessage+CoreDataProperties.swift"; sourceTree = SOURCE_ROOT; };
 		A2C70A1B7AFD9741DB2213C8 /* Pods-Lo&LiMac.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lo&LiMac.release.xcconfig"; path = "Target Support Files/Pods-Lo&LiMac/Pods-Lo&LiMac.release.xcconfig"; sourceTree = "<group>"; };
+		A2D6363929B8F139005D5981 /* ColorShemePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorShemePicker.swift; sourceTree = "<group>"; };
+		A2D6363B29B8F492005D5981 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		A2F4422A29B8E6200061931E /* ailoading.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = ailoading.json; sourceTree = "<group>"; };
 		DC0F1DC959EC1AD9B65718B4 /* Pods-Lo&Li.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Lo&Li.debug.xcconfig"; path = "Target Support Files/Pods-Lo&Li/Pods-Lo&Li.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -293,9 +290,8 @@
 				A22B739C29B422C00051C1E4 /* Lo_LiApp.swift */,
 				A22B748229B437B00051C1E4 /* AppConfig.swift */,
 				A22B73A329B422C00051C1E4 /* ContentView.swift */,
+				A2D6363B29B8F492005D5981 /* AppDelegate.swift */,
 				A22B73A729B422C00051C1E4 /* Lo_Li.entitlements */,
-				A2A3C00229B45F670075A77B /* citys.json */,
-				A2A3C00629B466F30075A77B /* response.json */,
 				A22B73A529B422C00051C1E4 /* Assets.xcassets */,
 				A22B746729B437680051C1E4 /* MVVM */,
 				A22B744129B4371D0051C1E4 /* Tools */,
@@ -330,7 +326,6 @@
 				A22B73C629B4354F0051C1E4 /* Padding.swift */,
 				A22B73C729B4354F0051C1E4 /* Font.swift */,
 				A22B73C829B4354F0051C1E4 /* LottieAnimation */,
-				A22B73D929B4354F0051C1E4 /* Fonts */,
 				A22B73DA29B4354F0051C1E4 /* NaduoDesginSystemView.swift */,
 			);
 			path = DesginSystem;
@@ -389,11 +384,9 @@
 		A22B73C929B4354F0051C1E4 /* LottieJsonFiles */ = {
 			isa = PBXGroup;
 			children = (
+				A2F4422A29B8E6200061931E /* ailoading.json */,
 				A22B73CA29B4354F0051C1E4 /* Tosta */,
-				A22B73CF29B4354F0051C1E4 /* wellcome.json */,
-				A22B73D029B4354F0051C1E4 /* loginsky.json */,
 				A22B73D129B4354F0051C1E4 /* Bell */,
-				A22B73D629B4354F0051C1E4 /* launchtext.json */,
 			);
 			path = LottieJsonFiles;
 			sourceTree = "<group>";
@@ -418,13 +411,6 @@
 				A22B73D529B4354F0051C1E4 /* green_bell.json */,
 			);
 			path = Bell;
-			sourceTree = "<group>";
-		};
-		A22B73D929B4354F0051C1E4 /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Fonts;
 			sourceTree = "<group>";
 		};
 		A22B73FC29B4370D0051C1E4 /* RouteStore */ = {
@@ -632,6 +618,7 @@
 				A2A3BFF429B451450075A77B /* PageSection.swift */,
 				A2A3BFF029B451180075A77B /* SettingListRow.swift */,
 				A2A3BFF829B4523B0075A77B /* SettingView.swift */,
+				A2D6363929B8F139005D5981 /* ColorShemePicker.swift */,
 				A2A3BFFC29B45A010075A77B /* ModelListView.swift */,
 			);
 			path = Setting;
@@ -726,20 +713,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				A22B73ED29B4354F0051C1E4 /* Tosta_Check_OK.json in Resources */,
-				A22B73F029B4354F0051C1E4 /* wellcome.json in Resources */,
-				A2A3C00329B45F670075A77B /* citys.json in Resources */,
 				A22B73F529B4354F0051C1E4 /* green_bell.json in Resources */,
 				A22B73EF29B4354F0051C1E4 /* Tosta_Check_Trash.json in Resources */,
 				A22B73AA29B422C00051C1E4 /* Preview Assets.xcassets in Resources */,
 				A22B73EC29B4354F0051C1E4 /* Tosta_Check_User.json in Resources */,
-				A22B73F129B4354F0051C1E4 /* loginsky.json in Resources */,
 				A22B73F329B4354F0051C1E4 /* blue_bell.json in Resources */,
 				A22B73A629B422C00051C1E4 /* Assets.xcassets in Resources */,
-				A22B73F629B4354F0051C1E4 /* launchtext.json in Resources */,
 				A22B73EE29B4354F0051C1E4 /* Tosta_Check_Phone.json in Resources */,
 				A22B73F229B4354F0051C1E4 /* red_bell.json in Resources */,
 				A22B73FB29B435760051C1E4 /* Podfile in Resources */,
 				A22B73F429B4354F0051C1E4 /* yellow_bell.json in Resources */,
+				A2F4422B29B8E6200061931E /* ailoading.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -852,6 +836,7 @@
 				A22B740229B4370D0051C1E4 /* RouteStore.swift in Sources */,
 				A22B73E429B4354F0051C1E4 /* FantasyToggle.swift in Sources */,
 				A22B73EA29B4354F0051C1E4 /* Padding.swift in Sources */,
+				A2D6363C29B8F492005D5981 /* AppDelegate.swift in Sources */,
 				A22B743129B437160051C1E4 /* Clandar+++.swift in Sources */,
 				A2A3C02D29B4A05A0075A77B /* ChatMessage+CoreDataClass.swift in Sources */,
 				A22B73F729B4354F0051C1E4 /* LottieAnimations.swift in Sources */,
@@ -859,6 +844,7 @@
 				A22B743629B437160051C1E4 /* FileManager++.swift in Sources */,
 				A22B73DD29B4354F0051C1E4 /* Pops.swift in Sources */,
 				A22B746529B4371D0051C1E4 /* PublicValue.swift in Sources */,
+				A2D6363A29B8F139005D5981 /* ColorShemePicker.swift in Sources */,
 				A22B743A29B437160051C1E4 /* Array++.swift in Sources */,
 				A22B746129B4371D0051C1E4 /* PF_OffsetScrollView.swift in Sources */,
 				A22B747F29B4378A0051C1E4 /* User.swift in Sources */,

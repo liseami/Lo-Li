@@ -11,15 +11,19 @@ import SwiftUI
 struct ContentView: View {
     @Environment(\.managedObjectContext) private var viewContext
     @ObservedObject var userManager: UserManager = .shared
+    @ObservedObject var uistate: UIState = .shared
+    @Environment(\.colorScheme) private var systemColorSheme
+        
+  
     var body: some View {
-        Group{
+        Group {
             if userManager.logged {
                 MainView()
             } else {
                 TokenGetView()
             }
         }
-        .environment(\.colorScheme, .light)
+        .environment(\.colorScheme, uistate.ColorShemeModel == 0 ? systemColorSheme : uistate.ColorShemeModel == 1 ? .light : .dark)
     }
 }
 

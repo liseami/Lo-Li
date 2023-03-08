@@ -35,6 +35,8 @@ struct Tosta: View {
         self.animationJson = animationJson
     }
 
+    @ObservedObject var uistate: UIState = .shared
+    @Environment(\.colorScheme) private var systemColorSheme
     var body: some View {
         BlurView()
             .frame(width: w, height: w, alignment: .center)
@@ -55,10 +57,12 @@ struct Tosta: View {
                 }
                 .padding(.all, 12)
             }
+            .environment(\.colorScheme, uistate.ColorShemeModel == 0 ? systemColorSheme : uistate.ColorShemeModel == 1 ? .light : .dark)
+        
     }
 
     var w: CGFloat {
-        SCREEN_WIDTH * 0.47
+        200
     }
 }
 

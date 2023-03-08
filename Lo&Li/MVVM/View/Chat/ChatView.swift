@@ -24,7 +24,11 @@ struct ChatView: View {
             let w = GeometryProxy.size.width
             ScrollView(.vertical, showsIndicators: true) {
                 Spacer().frame(height: 150, alignment: .center)
-                ProgressView().frame(height: 32, alignment: .center)
+                AutoLottieView(lottieFliesName: "ailoading", loopMode: .loop, speed: 3)
+                    .frame(height: 160, alignment: .center)
+                    .transition(.scale.combined(with: .opacity).animation(.NaduoSpring))
+                    .animation(.NaduoSpring, value: vm.isLoading)
+                    .scaleEffect(x: 1, y: -1, anchor: .center)
                     .ifshow(vm.isLoading)
 
                 if messages.isEmpty {
@@ -40,15 +44,16 @@ struct ChatView: View {
                         switch message.roletype {
                         case .user:
                             Text(message.content)
-                                .ndFont(.body1b, color: .b1)
+                                .ndFont(.body1b, color: .b2)
                                 .padding(.all)
                                 .frame(minWidth: 40, alignment: .trailing)
                                 .addBack(cornerRadius: 10, backGroundColor: .teal, strokeLineWidth: 0, strokeFColor: .clear)
                                 .NaduoShadow(color: .f2, style: .s300)
                                 .NaduoShadow(color: .f3, style: .s100)
-                                .padding(.all, 12)
                                 .frame(maxWidth: w * 0.618, alignment: .trailing)
                                 .frame(maxWidth: .infinity, alignment: .trailing)
+                                .padding(.horizontal)
+                                .padding(.horizontal, 12)
                                 .scaleEffect(x: 1, y: -1, anchor: .center)
 
                         case .assistant:
@@ -60,6 +65,7 @@ struct ChatView: View {
                                     .padding(.top, 12)
                                 VStack(alignment: .leading, spacing: 12) {
                                     TextField("", text: .constant(message.content), axis: .vertical)
+                                        .ndFont(.body1, color: .f1)
                                     Text("\(message.tokens) Tokens")
                                         .font(.system(size: 14, weight: .thin, design: .monospaced))
                                         .foregroundColor(.teal)
@@ -67,15 +73,19 @@ struct ChatView: View {
                                 .lineSpacing(2)
                                 .addLoliCardBack()
                             }
-                            .padding(.all, 12)
                             .frame(maxWidth: w * 0.618, alignment: .leading)
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .padding(.horizontal)
+                            .padding(.horizontal, 12)
                             .scaleEffect(x: 1, y: -1, anchor: .center)
                         }
                     }
                     .contextMenu {
                         PF_MenuBtn(text: "删除", name: "trash", color: .red) {
                             PersistenceController.shared.container.viewContext.delete(messageEntity)
+                            coreDataSave {
+                                vm.objectWillChange.send()
+                            } onError: {}
                         }
                     }
                 }
@@ -84,17 +94,18 @@ struct ChatView: View {
             .scaleEffect(x: 1, y: -1, anchor: .center)
             .overlay(alignment: .bottom) {
                 inputView
-                    .padding(.all)
             }
         })
+        .navigationBarHidden(true)
     }
 
     var inputView: some View {
         HStack(spacing: 8) {
             TextField("输入内容...", text: $vm.userInput)
+                .ndFont(.body1, color: .f1)
                 .frame(height: 44, alignment: .center)
                 .padding(.horizontal)
-                .addBack(cornerRadius: 12, backGroundColor: .b1, strokeLineWidth: 0, strokeFColor: .clear)
+                .addBack(cornerRadius: 12, backGroundColor: .b2, strokeLineWidth: 0, strokeFColor: .clear)
                 .NaduoShadow(color: .f2, style: .s300)
                 .NaduoShadow(color: .f3, style: .s100)
                 .padding(.all, 4)
@@ -109,9 +120,9 @@ struct ChatView: View {
             Button {
                 vm.sendMessage()
             } label: {
-                ICON(name: "send")
+                ICON(name: "send",fcolor: .f1)
                     .frame(width: 44, height: 44, alignment: .center)
-                    .addBack(cornerRadius: 10, backGroundColor: .b1, strokeLineWidth: 0, strokeFColor: .clear)
+                    .addBack(cornerRadius: 10, backGroundColor: .b2, strokeLineWidth: 0, strokeFColor: .clear)
                     .NaduoShadow(color: .f2, style: .s300)
                     .NaduoShadow(color: .f3, style: .s100)
                     .padding(.all, 3)
@@ -131,15 +142,16 @@ struct ChatView: View {
             }
         }
         .padding(.all)
-        .addBack(cornerRadius: 24, backGroundColor: .b1, strokeLineWidth: 0, strokeFColor: .clear)
+        .addBack(cornerRadius: 24, backGroundColor: .b2, strokeLineWidth: 0, strokeFColor: .clear)
         .NaduoShadow(color: .f2, style: .s300)
         .NaduoShadow(color: .f3, style: .s100)
-        .padding(.all, 6)
         .overlay(alignment: .center) {
             RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .stroke(lineWidth: 1)
                 .fill(Color.teal.opacity(0.1).gradient)
         }
+        .padding(.all, 12)
+        .padding(.horizontal, 12)
     }
 }
 

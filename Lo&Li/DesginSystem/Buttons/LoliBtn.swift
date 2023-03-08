@@ -121,7 +121,7 @@ struct LoliBtn: View {
         } else {
             HStack(spacing: .Naduo.padding12) {
                 if let icon = config.leftIcon {
-                    ICON(name: icon, size: iconsize, renderMode: .original)
+                    ICON(name: icon, fcolor: self.config.contentColor, size: iconsize, renderMode: .template)
                 }
                 switch self.type {
                 case .large:
