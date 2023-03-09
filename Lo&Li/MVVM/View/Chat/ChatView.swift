@@ -79,33 +79,26 @@ struct ChatView: View {
                 inputView
             }
         })
-        .overlay(
-            HStack(spacing: 16) {
-                Spacer()
-                ICON(sysname: "list.bullet.indent", fcolor: .f1, size: 24, fontWeight: .regular) {
-//                    UIState.shared.columnVisibility = NavigationSplitViewVisibility.all
-                }
-                ICON(sysname: "arrow.clockwise", fcolor: .f1, size: 24, fontWeight: .regular) {
-                    AppHelper().presentAlert(withTitle: "确定要清空对话？", message: "不可恢复。", actions: [.init(title: "确认", style: .destructive), .init(title: "点错了", style: .cancel)]) { UIAlertAction in
-                        if UIAlertAction.title == "确认" {
-                            vm.currentConversation?.messages?.forEach { message in
-                                viewContext.delete(message)
+        .toolbar {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                HStack(spacing: 16) {
+                    Spacer()
+                    ICON(sysname: "arrow.clockwise", fcolor: .f1, size: 16, fontWeight: .regular) {
+                        AppHelper().presentAlert(withTitle: "确定要清空对话？", message: "不可恢复。", actions: [.init(title: "确认", style: .destructive), .init(title: "点错了", style: .cancel)]) { UIAlertAction in
+                            if UIAlertAction.title == "确认" {
+                                vm.currentConversation?.messages?.forEach { message in
+                                    viewContext.delete(message)
+                                }
+                                coreDataSave {
+                                    vm.objectWillChange.send()
+                                } onError: {}
                             }
-                            coreDataSave {
-                                vm.objectWillChange.send()
-                            } onError: {}
                         }
                     }
                 }
             }
-            .addGoldenPadding()
-            .addLoliBtnBack()
-            .frame(maxWidth: 200)
-            .frame(maxWidth: .infinity, alignment: .trailing)
-            .padding(.all),
-
-            alignment: .top)
-        .navigationBarHidden(true)
+        }
+        
     }
 
     var inputView: some View {

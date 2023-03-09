@@ -27,6 +27,7 @@ class ChatViewModel: ObservableObject {
             let new = ChatMessage(context: viewContext).creatNew(mod: MessageToShow(id: "", content: self.userInput, role: MessageToShow.Role.user.rawValue, createat: Date.now.timestamp.string, tokens: ""))
             new.conversation = currentConversation
             coreDataSave {
+                CloseKeyBoard()
                 //        self.messageList.insert(MessageToShow(content: self.userInput, role: .user, createat: Date.now.timestamp.string), at: 0)
                 self.userInput.removeAll()
                 // 总结历史信息

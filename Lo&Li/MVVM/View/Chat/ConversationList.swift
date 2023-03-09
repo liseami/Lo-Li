@@ -38,29 +38,6 @@ struct ConversationList: View {
                                 }
                             }
                     }
-
-//                    NavigationLink {
-//                        ChatView()
-//                            .environmentObject(vm)
-////                        Color.red
-//                    } label: {
-//                        ConversationRow(chatConversation: chatConversation, selected: selecte)
-//                            .onTapGesture {
-//                                vm.currentConversation = chatConversation
-//                            }
-//                            .contextMenu {
-//                                PF_MenuBtn(text: "删除", sysname: "trash", color: .red) {
-//                                    // 删除
-//                                    self.vm.currentConversation = nil
-//                                    viewContext.delete(chatConversation)
-//                                    coreDataSave {} onError: {}
-//                                }
-//                            }
-//                    }
-//
-
-                    //                            .navigationBarTitleDisplayMode(.inline)
-                    //                            .environmentObject(vm)
                 }
             }
             .padding(.horizontal, 12)
