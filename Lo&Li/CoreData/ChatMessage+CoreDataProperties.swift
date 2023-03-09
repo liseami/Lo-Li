@@ -37,7 +37,7 @@ extension ChatMessage: Identifiable {
     func addNew(mod: MessageToShow) {
         data = mod.stringData
         id = mod.id
-        createat = Date(timeIntervalSince1970: TimeInterval(mod.createat.int ?? 0))
+        createat = Date()
         coreDataSave {} onError: {}
     }
 
@@ -45,7 +45,7 @@ extension ChatMessage: Identifiable {
     func creatNew(mod: MessageToShow) -> ChatMessage {
         data = mod.stringData
         id = mod.id
-        createat = Date(timeIntervalSince1970: TimeInterval(mod.createat.int ?? 0))
+        createat = Date()
         return self
     }
 }

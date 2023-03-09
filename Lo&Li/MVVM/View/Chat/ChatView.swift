@@ -46,7 +46,7 @@ struct ChatView: View {
                             .scaleEffect(x: 1, y: -1, anchor: .center)
                     }
 
-                    ForEach(messages, id: \.createat) { messageEntity in
+                    ForEach(messages, id: \.objectID) { messageEntity in
                         let message = messageEntity.wrapvalue
                         Group {
                             switch message.roletype {
