@@ -16,9 +16,12 @@ struct MainView: View {
                 ConversationList()
                     .environmentObject(chatViewModel)
                 HStack {
-                    ICON(name: "settinggear", fcolor: .f1) {
-                        PushTo(SettingView())
+                    NavigationLink {
+                        SettingView()
+                    } label: {
+                        ICON(name: "settinggear", fcolor: .f1)
                     }
+
                     Spacer()
                 }
                 .padding(.all)
@@ -36,11 +39,11 @@ struct MainView: View {
             }
         }
         .navigationViewStyle(.columns)
-                .introspectNavigationController(customize: { navigationController in
-                    // RouterStore注册...
-                    RouteStore.shared.register(navigationController)
-                })
-                
+        .introspectNavigationController(customize: { navigationController in
+            // RouterStore注册...
+            RouteStore.shared.register(navigationController)
+        })
+
 //        NavigationSplitView(columnVisibility: $uistate.columnVisibility) {
 //
 //
