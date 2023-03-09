@@ -20,18 +20,47 @@ struct ConversationList: View {
             LazyVStack(alignment: .leading, spacing: 12) {
                 ForEach(chatConversations, id: \.createat) { chatConversation in
                     let selecte = vm.currentConversation?.id == chatConversation.id
-                    ConversationRow(chatConversation: chatConversation, selected: selecte)
-                        .onTapGesture {
-                            vm.currentConversation = chatConversation
-                        }
-                        .contextMenu {
-                            PF_MenuBtn(text: "删除", sysname: "trash", color: .red) {
-                                // 删除
-                                self.vm.currentConversation = nil
-                                viewContext.delete(chatConversation)
-                                coreDataSave {} onError: {}
+
+                    NavigationLink(tag: chatConversation, selection: $vm.currentConversation) {
+                        ChatView()
+                            .environmentObject(vm)
+                    } label: {
+                        ConversationRow(chatConversation: chatConversation, selected: selecte)
+                            .onTapGesture {
+                                vm.currentConversation = chatConversation
                             }
-                        }
+                            .contextMenu {
+                                PF_MenuBtn(text: "删除", sysname: "trash", color: .red) {
+                                    // 删除
+                                    self.vm.currentConversation = nil
+                                    viewContext.delete(chatConversation)
+                                    coreDataSave {} onError: {}
+                                }
+                            }
+                    }
+
+//                    NavigationLink {
+//                        ChatView()
+//                            .environmentObject(vm)
+////                        Color.red
+//                    } label: {
+//                        ConversationRow(chatConversation: chatConversation, selected: selecte)
+//                            .onTapGesture {
+//                                vm.currentConversation = chatConversation
+//                            }
+//                            .contextMenu {
+//                                PF_MenuBtn(text: "删除", sysname: "trash", color: .red) {
+//                                    // 删除
+//                                    self.vm.currentConversation = nil
+//                                    viewContext.delete(chatConversation)
+//                                    coreDataSave {} onError: {}
+//                                }
+//                            }
+//                    }
+//
+
+                    //                            .navigationBarTitleDisplayMode(.inline)
+                    //                            .environmentObject(vm)
                 }
             }
             .padding(.horizontal, 12)

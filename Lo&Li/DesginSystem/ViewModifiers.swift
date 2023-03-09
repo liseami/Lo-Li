@@ -731,7 +731,7 @@ struct LoliCardModifier: ViewModifier {
             .overlay(alignment: .center) {
                 RoundedRectangle(cornerRadius: 28, style: .continuous)
                     .stroke(lineWidth: 1)
-                    .fill(Color.teal.opacity(0.1).gradient)
+                    .fill(Color.teal.opacity(0.1))
             }
     }
 }
@@ -753,13 +753,13 @@ struct LoliBtnModifier : ViewModifier {
             .overlay(alignment: .center) {
                 RoundedRectangle(cornerRadius: 12, style: .continuous)
                     .stroke(lineWidth: 1.5)
-                    .fill(Color.f2.opacity(0.3).gradient)
+                    .fill(Color.f2.opacity(0.3))
             }
             .padding(.all, 3)
             .overlay(alignment: .center) {
                 RoundedRectangle(cornerRadius: 14, style: .continuous)
                     .stroke(lineWidth: 4)
-                    .fill(Color.f3.opacity(0.3).gradient)
+                    .fill(Color.f3.opacity(0.3))
             }
     }
 }

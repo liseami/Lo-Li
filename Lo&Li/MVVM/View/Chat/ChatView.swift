@@ -45,7 +45,7 @@ struct ChatView: View {
                     Group {
                         switch message.roletype {
                         case .user:
-                            TextField("", text: .constant(message.content), axis: .vertical)
+                            TextField("", text: .constant(message.content))
                                 .ndFont(.body1b, color: .b2)
                                 .padding(.all)
                                 .frame(minWidth: 40, alignment: .trailing)
@@ -83,7 +83,7 @@ struct ChatView: View {
             HStack(spacing: 16) {
                 Spacer()
                 ICON(sysname: "list.bullet.indent", fcolor: .f1, size: 24, fontWeight: .regular) {
-                    UIState.shared.columnVisibility = NavigationSplitViewVisibility.all
+//                    UIState.shared.columnVisibility = NavigationSplitViewVisibility.all
                 }
                 ICON(sysname: "arrow.clockwise", fcolor: .f1, size: 24, fontWeight: .regular) {
                     AppHelper().presentAlert(withTitle: "确定要清空对话？", message: "不可恢复。", actions: [.init(title: "确认", style: .destructive), .init(title: "点错了", style: .cancel)]) { UIAlertAction in
@@ -121,7 +121,7 @@ struct ChatView: View {
                 .overlay(alignment: .center) {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .stroke(lineWidth: 2)
-                        .fill(Color.teal.opacity(0.8).gradient)
+                        .fill(Color.teal.opacity(0.8))
                 }
                 .onSubmit {
                     vm.sendMessage()
@@ -138,14 +138,14 @@ struct ChatView: View {
                     .overlay(alignment: .center) {
                         RoundedRectangle(cornerRadius: 12, style: .continuous)
                             .stroke(lineWidth: 1.5)
-                            .fill(Color.f2.opacity(0.3).gradient)
+                            .fill(Color.f2.opacity(0.3))
                         //                        .shadow(color: .f1, radius: 1, x: 0, y: 0)
                     }
                     .padding(.all, 3)
                     .overlay(alignment: .center) {
                         RoundedRectangle(cornerRadius: 14, style: .continuous)
                             .stroke(lineWidth: 4)
-                            .fill(Color.f3.opacity(0.3).gradient)
+                            .fill(Color.f3.opacity(0.3))
                         //                        .shadow(color: .f1, radius: 1, x: 0, y: 0)
                     }
             }
@@ -157,7 +157,7 @@ struct ChatView: View {
         .overlay(alignment: .center) {
             RoundedRectangle(cornerRadius: 28, style: .continuous)
                 .stroke(lineWidth: 1)
-                .fill(Color.teal.opacity(0.1).gradient)
+                .fill(Color.teal.opacity(0.1))
         }
         .padding(.all, 12)
         .padding(.horizontal, 12)
