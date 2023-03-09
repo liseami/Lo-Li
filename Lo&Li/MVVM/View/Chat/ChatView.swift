@@ -5,7 +5,6 @@
 //  Created by 赵翔宇 on 2023/3/5.
 //
 
-
 import SwiftUI
 import WebKit
 
@@ -25,50 +24,58 @@ struct ChatView: View {
         GeometryReader(content: { GeometryProxy in
             let w = GeometryProxy.size.width
             ScrollView(.vertical, showsIndicators: true) {
-                Spacer().frame(height: 150, alignment: .center)
-                AutoLottieView(lottieFliesName: "ailoading", loopMode: .loop, speed: 3)
-                    .frame(height: 160, alignment: .center)
-                    .transition(.scale.combined(with: .opacity).animation(.NaduoSpring))
-                    .animation(.NaduoSpring, value: vm.isLoading)
-                    .scaleEffect(x: 1, y: -1, anchor: .center)
-                    .ifshow(vm.isLoading)
-
-                if messages.isEmpty {
-                    Text("说点什么")
-                        .ndFont(.body1, color: .f2)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                VStack(alignment: .center, spacing: 16) {
+                    Spacer().frame(height: 150, alignment: .center)
+                    AutoLottieView(lottieFliesName: "ailoading", loopMode: .loop, speed: 3)
+                        .frame(height: 160, alignment: .center)
+                        .transition(.scale.combined(with: .opacity).animation(.NaduoSpring))
+                        .animation(.NaduoSpring, value: vm.isLoading)
                         .scaleEffect(x: 1, y: -1, anchor: .center)
-                }
+                        .ifshow(vm.isLoading)
 
-                ForEach(messages, id: \.createat) { messageEntity in
-                    let message = messageEntity.wrapvalue
-                    Group {
-                        switch message.roletype {
-                        case .user:
-                            TextField("", text: .constant(message.content))
-                                .ndFont(.body1b, color: .b2)
-                                .padding(.all)
-                                .frame(minWidth: 40, alignment: .trailing)
-                                .addBack(cornerRadius: 10, backGroundColor: .teal, strokeLineWidth: 0, strokeFColor: .clear)
-                                .NaduoShadow(color: .f2, style: .s300)
-                                .NaduoShadow(color: .f3, style: .s100)
-                                .frame(maxWidth: w * 0.618 * 0.618, alignment: .trailing)
-                                .frame(maxWidth: .infinity, alignment: .trailing)
-                                .padding(.horizontal)
-                                .padding(.horizontal, 12)
-                                .scaleEffect(x: 1, y: -1, anchor: .center)
-
-                        case .assistant:
-                            AssistantMessage(message: message, w: w)
-                                .scaleEffect(x: 1, y: -1, anchor: .center)
-                        }
+                    LoliBtn(type: .small, config: .init(title: "重试", btnColor: .b2, contentColor: .f1), status: .defult) {
+                        vm.sendRequest()
                     }
-                    .contextMenu {
-                        PF_MenuBtn(text: "删除", name: "trash", color: .red) {
-                            viewContext.delete(messageEntity)
-                            coreDataSave {
-                                vm.objectWillChange.send()
-                            } onError: {}
+                    .scaleEffect(x: 1, y: -1, anchor: .center)
+                    .ifshow(vm.showRetryBtn)
+
+                    if messages.isEmpty {
+                        Text("说点什么")
+                            .ndFont(.body1, color: .f2)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                            .scaleEffect(x: 1, y: -1, anchor: .center)
+                    }
+
+                    ForEach(messages, id: \.createat) { messageEntity in
+                        let message = messageEntity.wrapvalue
+                        Group {
+                            switch message.roletype {
+                            case .user:
+                                Text(message.content)
+                                    .textSelection(.enabled)
+                                    .ndFont(.body1b, color: .b2)
+                                    .padding(.all)
+                                    .frame(minWidth: 40, alignment: .trailing)
+                                    .addBack(cornerRadius: 10, backGroundColor: .teal, strokeLineWidth: 0, strokeFColor: .clear)
+                                    .NaduoShadow(color: .f2, style: .s300)
+                                    .NaduoShadow(color: .f3, style: .s100)
+                                    .frame(maxWidth: w * 0.618 * 0.618, alignment: .trailing)
+                                    .frame(maxWidth: .infinity, alignment: .trailing)
+                                    .padding(.horizontal)
+                                    .scaleEffect(x: 1, y: -1, anchor: .center)
+
+                            case .assistant:
+                                AssistantMessage(message: message, w: w)
+                                    .scaleEffect(x: 1, y: -1, anchor: .center)
+                            }
+                        }
+                        .contextMenu {
+                            PF_MenuBtn(text: "删除", name: "trash", color: .red) {
+                                viewContext.delete(messageEntity)
+                                coreDataSave {
+                                    vm.objectWillChange.send()
+                                } onError: {}
+                            }
                         }
                     }
                 }
@@ -98,7 +105,6 @@ struct ChatView: View {
                 }
             }
         }
-        
     }
 
     var inputView: some View {
@@ -117,10 +123,10 @@ struct ChatView: View {
                         .fill(Color.teal.opacity(0.8))
                 }
                 .onSubmit {
-                    vm.sendMessage()
+                    vm.tapSendBtn()
                 }
             Button {
-                vm.sendMessage()
+                vm.tapSendBtn()
             } label: {
                 ICON(name: "send", fcolor: .f1)
                     .frame(width: 44, height: 44, alignment: .center)
