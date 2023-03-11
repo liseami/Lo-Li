@@ -95,6 +95,7 @@
 		A22B748029B4378A0051C1E4 /* Apple.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22B747D29B4378A0051C1E4 /* Apple.swift */; };
 		A22B748129B4378A0051C1E4 /* Public.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22B747E29B4378A0051C1E4 /* Public.swift */; };
 		A22B748329B437B00051C1E4 /* AppConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = A22B748229B437B00051C1E4 /* AppConfig.swift */; };
+		A22E24A929BC1A0A00DE0DEB /* githubpic.png in Resources */ = {isa = PBXBuildFile; fileRef = A22E24A829BC1A0A00DE0DEB /* githubpic.png */; };
 		A2A3BFE929B446EE0075A77B /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3BFE829B446EE0075A77B /* MainView.swift */; };
 		A2A3BFEB29B44B600075A77B /* TokenGetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3BFEA29B44B600075A77B /* TokenGetView.swift */; };
 		A2A3BFED29B450CB0075A77B /* ChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2A3BFEC29B450CB0075A77B /* ChatView.swift */; };
@@ -217,6 +218,7 @@
 		A22B747E29B4378A0051C1E4 /* Public.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Public.swift; sourceTree = "<group>"; };
 		A22B748229B437B00051C1E4 /* AppConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppConfig.swift; sourceTree = "<group>"; };
 		A22B748E29B438F80051C1E4 /* Kingfisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Kingfisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A22E24A829BC1A0A00DE0DEB /* githubpic.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = githubpic.png; sourceTree = "<group>"; };
 		A2A3BFE829B446EE0075A77B /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		A2A3BFEA29B44B600075A77B /* TokenGetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenGetView.swift; sourceTree = "<group>"; };
 		A2A3BFEC29B450CB0075A77B /* ChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatView.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				A22B73FA29B435760051C1E4 /* Podfile */,
 				A22B739C29B422C00051C1E4 /* Lo_LiApp.swift */,
 				A22B748229B437B00051C1E4 /* AppConfig.swift */,
+				A22E24A829BC1A0A00DE0DEB /* githubpic.png */,
 				A22B73A329B422C00051C1E4 /* ContentView.swift */,
 				A2D6363B29B8F492005D5981 /* AppDelegate.swift */,
 				A22B73A729B422C00051C1E4 /* Lo_Li.entitlements */,
@@ -721,6 +724,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A22E24A929BC1A0A00DE0DEB /* githubpic.png in Resources */,
 				A22B73ED29B4354F0051C1E4 /* Tosta_Check_OK.json in Resources */,
 				A22B73F529B4354F0051C1E4 /* green_bell.json in Resources */,
 				A22B73EF29B4354F0051C1E4 /* Tosta_Check_Trash.json in Resources */,

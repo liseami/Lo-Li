@@ -43,9 +43,11 @@ struct ConversationList: View {
             .padding(.horizontal, 12)
         }
         .onAppear {
-            // 1秒后再渲染页面，否则markdownUI不能正确渲染
-            delayWork(1) {
-                vm.currentConversation = ChatConversationDataManager.shared.conversations.first
+            if SCREEN_WIDTH > 400 {
+                // 1秒后再渲染页面，否则markdownUI不能正确渲染
+                delayWork(1) {
+                    vm.currentConversation = ChatConversationDataManager.shared.conversations.first
+                }
             }
         }
     }
