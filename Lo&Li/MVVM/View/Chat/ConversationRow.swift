@@ -46,13 +46,13 @@ struct ConversationRow: View {
         .overlay(alignment: .center) {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .stroke(lineWidth: selected ? 3 : 1.5)
-                .fill(selected ? Color.teal.opacity(0.3).gradient : Color.f2.opacity(0.3).gradient)
+                .fill(selected ? Color.teal.opacity(0.3) : Color.f2.opacity(0.3))
         }
         .padding(.all, 3)
         .overlay(alignment: .center) {
             RoundedRectangle(cornerRadius: 14, style: .continuous)
                 .stroke(lineWidth: 4)
-                .fill(selected ? Color.teal.opacity(0.1).gradient : Color.f3.opacity(0.3).gradient)
+                .fill(selected ? Color.teal.opacity(0.1) : Color.f3.opacity(0.3))
         }
         .onHover { onHover in
             self.onHover = onHover

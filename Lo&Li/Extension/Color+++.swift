@@ -59,6 +59,8 @@ public extension Color {
         let components = uiColor.cgColor.components!
         self.init(red: Double(components[0]), green: Double(components[1]), blue: Double(components[2]), opacity: Double(components[3]))
     }
+    
+    
 }
 
 // MARK: 检测是否颜色过于亮

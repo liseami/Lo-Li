@@ -16,6 +16,6 @@ class UIState: ObservableObject {
         }
     }
     
-    @Published var columnVisibility =
-        NavigationSplitViewVisibility.all
+//    @Published var columnVisibility =
+//        NavigationSplitViewVisibility.all
 }

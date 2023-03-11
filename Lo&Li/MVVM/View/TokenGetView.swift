@@ -68,7 +68,7 @@ struct TokenGetView: View {
                 .overlay(alignment: .center) {
                     RoundedRectangle(cornerRadius: 12, style: .continuous)
                         .stroke(lineWidth: 2)
-                        .fill(Color.teal.opacity(0.8).gradient)
+                        .fill(Color.teal.opacity(0.8))
                 }
                 .onSubmit {
                     UserManager.shared.AccessToken = tokenInput

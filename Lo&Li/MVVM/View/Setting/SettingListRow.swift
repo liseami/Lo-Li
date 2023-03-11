@@ -10,28 +10,24 @@ import SwiftUI
 struct SettingListRow: View {
     let name: String
     var icon: String
-    var action: () -> ()
-    init(name: String, icon: String = "chevrondown", action: @escaping () -> () = {}) {
+    
+    init(name: String, icon: String = "chevrondown") {
         self.name = name
         self.icon = icon
-        self.action = action
+        
     }
 
     var body: some View {
-        Button {
-            action()
-        } label: {
-            HStack {
-                Text(name)
-                    .ndFont(.body1b, color: .f1)
-                Spacer()
-                ICON(name: icon, fcolor: .f1, size: 18)
-                    .rotationEffect(.init(degrees: icon == "chevrondown" ? -90 : 0), anchor: .center)
-            }
-            .padding(.all)
-            .addLoliBtnBack()
-            .padding(.all,6)
+        HStack {
+            Text(name)
+                .ndFont(.body1b, color: .f1)
+            Spacer()
+            ICON(name: icon, fcolor: .f1, size: 18)
+                .rotationEffect(.init(degrees: icon == "chevrondown" ? -90 : 0), anchor: .center)
         }
+        .padding(.all)
+        .addLoliBtnBack()
+        .padding(.all,6)
     }
 }
 

@@ -11,7 +11,7 @@ import SwiftUI
 struct AssistantMessage: View {
     let message: MessageToShow
     let w: CGFloat
-
+    @State private var index : Int = 0
     var messsageStr: String {
         message.content
     }
@@ -23,6 +23,7 @@ struct AssistantMessage: View {
                 .frame(width: 44, height: 44, alignment: .center)
                 .addBack(cornerRadius: 12, backGroundColor: .b1, strokeLineWidth: 1, strokeFColor: .b2)
                 .padding(.top, 12)
+                .ifshow(w > 400)
             VStack(alignment: .leading, spacing: 12) {
                 MarkdownUI(body: messsageStr)
                 Text("消耗：\(message.tokens) Tokens")
@@ -32,10 +33,9 @@ struct AssistantMessage: View {
             .lineSpacing(2)
             .addLoliCardBack()
         }
-        .frame(maxWidth: w * 0.618, alignment: .leading)
+        .frame(maxWidth: w > 400 ? w * 0.618 : .infinity, alignment: .leading)
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.horizontal)
-        .padding(.horizontal, 12)
     }
 }
 

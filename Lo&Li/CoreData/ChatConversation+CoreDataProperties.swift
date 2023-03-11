@@ -41,7 +41,7 @@ extension ChatConversation: Identifiable {
     //     AddNew
     func addNew() {
         id = UUID().uuidString
-        title = "新的对话"
+        title = "新的对话 " + Date.now.toString(dateFormat: "MM-dd HH:mm:ss")
         createat = Date.now
         lasttimetouse = Date.now
         coreDataSave {} onError: {}
@@ -50,7 +50,7 @@ extension ChatConversation: Identifiable {
     // CreatNew
     func creatNew() -> ChatConversation {
         id = UUID().uuidString
-        title = "新的对话"
+        title = "新的对话 " + Date.now.toString(dateFormat: "MM-dd HH:mm:ss")
         createat = Date.now
         lasttimetouse = Date.now
         return self

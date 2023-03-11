@@ -20,15 +20,19 @@ struct SettingView: View {
                             VStack(alignment: .leading, spacing: .Naduo.padding8) {
                                 if let items = group.children {
                                     ForEach(items, id: \.name) { item in
-                                        SettingListRow(name: item.name) {
+                                        
+                                        NavigationLink {
                                             switch item.name {
-                                            case "Token": PushTo(TokenGetView())
+                                            case "Token":
+                                                TokenGetView()
                                             case "模型选择":
-                                                PushTo(ModelListView())
+                                               ModelListView()
                                             case "颜色模式":
-                                                PushTo(ColorShemePicker())
-                                            default: break
+                                                ColorShemePicker()
+                                            default: EmptyView()
                                             }
+                                        } label: {
+                                            SettingListRow(name: item.name)
                                         }
                                     }
                                 }
