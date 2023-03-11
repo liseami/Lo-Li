@@ -1,6 +1,8 @@
 # Lo&Li
-openAI聊天客户端
 
+![image](/githubpic.png)
+
+openAI聊天客户端
 
 这个项目的名字取自我写的科幻短篇小说[《放逐之日》](https://99csw.com/article/7913.htm)的两个主角的名字Lo，Li。和萝莉没关系。
 
