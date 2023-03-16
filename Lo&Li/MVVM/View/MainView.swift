@@ -43,20 +43,15 @@ struct MainView: View {
             // RouterStore注册...
             RouteStore.shared.register(navigationController)
         })
-
-//        NavigationSplitView(columnVisibility: $uistate.columnVisibility) {
-//
-//
-//        } detail: {
-//            ChatView()
-//                .navigationBarTitleDisplayMode(.inline)
-//                .environmentObject(chatViewModel)
-//        }
-//        .navigationSplitViewStyle(.automatic)
-//        .introspectNavigationController(customize: { navigationController in
-//            // RouterStore注册...
-//            RouteStore.shared.register(navigationController)
-//        })
+        .onAppear {
+            if ChatConversationDataManager.shared.conversations.isEmpty {
+                let new = ChatConversation(context: PersistenceController.shared.container.viewContext).creatNew()
+                coreDataSave {
+                    chatViewModel.currentConversation = new
+                    pushPop("开始聊天吧。输入你的第一句话。", style: .info)
+                } onError: {}
+            }
+        }
     }
 }
 

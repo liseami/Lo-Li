@@ -13,18 +13,29 @@ struct TokenGetView: View {
         _tokenInput = State(wrappedValue: UserManager.shared.AccessToken)
     }
 
+    var isPad: Bool {
+        SCREEN_WIDTH > 500
+    }
+
     var body: some View {
         ZStack {
             Color.b1.ignoresSafeArea()
+                .onTapGesture(count: 3) {
+                    UserManager.shared.AccessToken.removeAll()
+                }
+
             GeometryReader { GeometryProxy in
+
                 let w = GeometryProxy.size.width
                 VStack(spacing: 32) {
-                    Text("Lo&Li需要你的Token才能运行")
+                    Image("BrandChatICON")
+                        .resizable()
+                        .frame(width: isPad ? 240 : 120, height: isPad ? 240 : 120, alignment: .center)
+                    Text("Lo&Li需要你的Token才能运转")
                         .ndFont(.t1b)
                     Text("去 [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys) 创建并复制你的Token")
                         .ndFont(.body1)
-
-                    if w > 500 {
+                    if isPad {
                         Group {
                             inputView
                             startBtn
@@ -42,11 +53,16 @@ struct TokenGetView: View {
                 .frame(maxHeight: .infinity, alignment: .center)
                 .frame(maxWidth: .infinity, alignment: .center)
             }
+            .frame(maxWidth: SCREEN_WIDTH)
         }
     }
 
     var startBtn: some View {
         LoliBtn(type: .large, config: .init(title: "开始聊天", leftIcon: "send", btnColor: .b1, contentColor: .f1), status: .defult) {
+            guard !tokenInput.isEmpty else {
+                pushPop("Token为空无法继续。", style: .danger)
+                return
+            }
             DispatchQueue.main.async {
                 UserManager.shared.AccessToken = tokenInput
             }

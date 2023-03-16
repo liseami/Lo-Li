@@ -25,7 +25,7 @@ struct SettingView: View {
                                             switch item.name {
                                             case "Token":
                                                 TokenGetView()
-                                            case "模型选择":
+                                            case "模型列表":
                                                ModelListView()
                                             case "颜色模式":
                                                 ColorShemePicker()

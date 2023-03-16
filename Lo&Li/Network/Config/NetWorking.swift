@@ -17,7 +17,7 @@ open class CGI<Target: TargetType>: MoyaProvider<Target> {
     public init(configuration: URLSessionConfiguration = URLSessionConfiguration.af.default,
                 plugins: [PluginType] = [NetworkingLogger(), WarningPlugin(), TokenPlugin()])
     {
-        configuration.timeoutIntervalForRequest = 15
+        configuration.timeoutIntervalForRequest = 30
 
         let session = Session(configuration: configuration)
         super.init(session: session, plugins: plugins)

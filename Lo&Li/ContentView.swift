@@ -18,6 +18,7 @@ struct ContentView: View {
         Group {
             if userManager.logged {
                 MainView()
+                   
             } else {
                 TokenGetView()
             }

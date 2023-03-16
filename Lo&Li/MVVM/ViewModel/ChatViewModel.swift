@@ -9,14 +9,12 @@ import Foundation
 
 class ChatViewModel: ObservableObject {
     @Published var currentModel: String = "gpt-3.5-turbo"
-    @Published var userInput: String = ""
+    @MainActor @Published var userInput: String = ""
     @Published var currentConversation: ChatConversation?
     @Published var isLoading: Bool = false
     @Published var showRetryBtn: Bool = false
 
-    
-
-    func tapSendBtn() {
+    @MainActor func tapSendBtn() {
         guard !userInput.isEmpty else { pushPop("空内容无法发送。", style: .danger); return }
         let viewContext = PersistenceController.shared.container.viewContext
         let send = {
