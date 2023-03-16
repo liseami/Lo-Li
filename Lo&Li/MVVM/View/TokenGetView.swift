@@ -25,8 +25,6 @@ struct TokenGetView: View {
                 }
 
             GeometryReader { GeometryProxy in
-
-                let w = GeometryProxy.size.width
                 VStack(spacing: 32) {
                     Image("BrandChatICON")
                         .resizable()
