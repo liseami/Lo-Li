@@ -1019,7 +1019,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Lo&Li/Lo_Li.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1000;
+				CURRENT_PROJECT_VERSION = 1001;
 				DEVELOPMENT_ASSET_PATHS = "\"Lo&Li/Preview Content\"";
 				DEVELOPMENT_TEAM = 6UB6WM6VQR;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -1066,7 +1066,7 @@
 				CODE_SIGN_ENTITLEMENTS = "Lo&Li/Lo_Li.entitlements";
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1000;
+				CURRENT_PROJECT_VERSION = 1001;
 				DEVELOPMENT_ASSET_PATHS = "\"Lo&Li/Preview Content\"";
 				DEVELOPMENT_TEAM = 6UB6WM6VQR;
 				ENABLE_HARDENED_RUNTIME = YES;
